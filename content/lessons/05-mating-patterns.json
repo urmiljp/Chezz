@@ -1,0 +1,69 @@
+{
+  "id": "mating-patterns",
+  "order": 5,
+  "title": "Back-rank and basic mates",
+  "category": "Checkmates",
+  "summary": "Spot the trapped king: back-rank mates and finishing with the queen.",
+  "weakness": [
+    "tag:back_rank",
+    "tag:missed_mate"
+  ],
+  "drill": {
+    "themes": [
+      "backRankMate",
+      "mateIn1",
+      "mateIn2"
+    ],
+    "count": 10
+  },
+  "body": "A king behind its own unmoved pawns has **no escape squares**. A rook or queen landing on that back rank is mate.\n\n- **Attacking:** when the enemy king is boxed in, check every back-rank check first. If a defender can block, capture the blocker.\n- **Defending:** give your king air (h3/h6) once the position calms down, and keep a rook on the back rank.\n- **Finishing:** with king and queen against a lonely king, use your king to cover escape squares and give mate on the edge.",
+  "examples": [
+    {
+      "fen": "6k1/5ppp/8/8/8/8/8/R5K1 w - - 0 1",
+      "solution": [
+        "a1a8"
+      ],
+      "prompt": "White to move and mate in one.",
+      "explain": "Ra8# - the pawns on f7, g7 and h7 take away every escape square.",
+      "accept": [
+        [
+          "a1a8"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "6k1/5ppp/8/8/8/8/1r3PPP/R5K1 w - - 0 1",
+      "solution": [
+        "a1a8",
+        "b2b8",
+        "a8b8"
+      ],
+      "prompt": "White to move and mate in two.",
+      "explain": "Ra8+ forces Rb8 to block, and Rxb8# - the blocker can be captured with mate.",
+      "accept": [
+        [
+          "a1a8"
+        ],
+        [
+          "a8b8"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "k7/8/1K6/8/8/8/7Q/8 w - - 0 1",
+      "solution": [
+        "h2h8"
+      ],
+      "prompt": "White to move and mate in one.",
+      "explain": "Qh8# - your king covers a7 and b7, the queen covers the whole eighth rank.",
+      "accept": [
+        [
+          "h2h8"
+        ]
+      ],
+      "orientation": "white"
+    }
+  ]
+}

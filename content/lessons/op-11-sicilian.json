@@ -1,0 +1,49 @@
+{
+  "id": "sicilian-defense",
+  "order": 111,
+  "title": "Sicilian Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.e4 c5: fight for d4 from the side and play for an unbalanced game with winning chances.",
+  "weakness": [
+    "opening:Sicilian Defense"
+  ],
+  "body": "1...c5 is the most popular answer to 1.e4. Black controls d4 with a flank pawn and keeps the game unbalanced. When White plays d4, Black trades a wing pawn for a center pawn and gets the **half-open c-file**.\n\nYour plan:\n- In the Open Sicilian, use the **c-file**, ...a6 and ...b5 for queenside play.\n- Your **d6 and e6/e5** pawns hold the center. Don't let White get e5 for free.\n- If White castles queenside, your attack on the queenside is a race. Speed matters.\n\nVariations you'll meet:\n- **Najdorf (5...a6)** and **Dragon (5...g6)** in the Open Sicilian.\n- **Alapin (2.c3)**: hit e4 with ...Nf6 and ...d5.\n- **Smith-Morra (2.d4 cxd4 3.c3)**: decline with 3...Nf6 for an easy game.\n- **Grand Prix (2.Nc3 and f4)** and **Moscow (3.Bb5+)**: anti-Sicilians common at club level.\n\nCommon mistakes at club level:\n- Playing ...e5 and leaving d5 to a white knight forever.\n- Being too slow on the queenside while White's kingside attack arrives.",
+  "lines": [
+    {
+      "name": "Najdorf: 6.Be2 e5",
+      "pgn": "1. e4 c5 {The Sicilian: fight for d4 from the side.} 2. Nf3 d6 {Prepares ...Nf6 without allowing e5.} 3. d4 {The Open Sicilian.} cxd4 {Trade a flank pawn for White's center pawn.} 4. Nxd4 Nf6 {Develop and attack e4.} 5. Nc3 a6 {The Najdorf: control b5 and prepare ...e5 or ...b5.} 6. Be2 {The classical, calm system.} e5 {Kick the d4 knight and claim center space.} 7. Nb3 Be7 {Develop and prepare to castle.} 8. O-O O-O {Next: ...Be6, ...Nbd7 and ...b5. Keep watching the d5 square.}",
+      "explain": "The ...e5 structure leaves a hole on d5. Fight for it with ...Be6 and ...Nbd7-b6; if you control d5, you are fine."
+    },
+    {
+      "name": "Najdorf: English Attack 6.Be3",
+      "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 {The English Attack: Be3, f3, Qd2, O-O-O and g4.} 6... e5 {Kick the knight.} 7. Nb3 Be6 {Fight for d5 at once.} 8. f3 Be7 {Develop and prepare to castle.} 9. Qd2 O-O {Castle, away from White's coming pawn storm.} 10. O-O-O Nbd7 {Opposite-side castling: race with ...b5-b4 against White's g4-g5.}",
+      "explain": "A race: White pushes g4-g5, you push ...b5-b4. Every tempo counts. ...Rc8 and ...Qc7 add pressure on c3 and the c-file."
+    },
+    {
+      "name": "Dragon: Yugoslav Attack",
+      "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 {The Dragon: the g7 bishop will breathe fire down the long diagonal.} 6. Be3 Bg7 {The Dragon bishop on the long diagonal.} 7. f3 O-O {Castle behind the fianchetto.} 8. Qd2 Nc6 {Develop and hit the d4 knight.} 9. Bc4 {The Yugoslav Attack: White wants h4-h5.} 9... Bd7 {Develop and connect the rooks; the c-file is next.} 10. O-O-O Rc8 {The c-file is your highway. ...Ne5 and ...Rxc3 sacrifices are typical.}",
+      "explain": "The sharpest line in chess. Your counterplay: ...Ne5-c4, ...Rxc3 exchange sacrifices, and the g7 bishop against b2."
+    },
+    {
+      "name": "Alapin: 2.c3",
+      "pgn": "1. e4 c5 2. c3 {The Alapin: White wants d4 and a full center.} 2... Nf6 {Attack e4 at once.} 3. e5 Nd5 {The knight is safe in the center.} 4. d4 cxd4 {Trade on d4 so White has to recapture with the c-pawn.} 5. Nf3 Nc6 {Develop and pressure d4.} 6. cxd4 d6 {Hit the e5 pawn and open lines for your pieces.}",
+      "explain": "Undermine White's center with ...d6 and ...Nc6. If White's pawns get exchanged, your knights become very active."
+    },
+    {
+      "name": "Smith-Morra: decline with 3...Nf6",
+      "pgn": "1. e4 c5 2. d4 cxd4 {Take the pawn; the c-file opens.} 3. c3 {The Smith-Morra Gambit: White offers a pawn for development.} 3... Nf6 {Decline politely. Attack e4 instead of taking.} 4. e5 Nd5 {The knight is safe and central.} 5. cxd4 d6 {This is now an Alapin-type position where you have nothing to fear.} 6. Nf3 Nc6 {Pressure on d4 and e5. Your pieces are active.}",
+      "explain": "This is exactly the position from the Alapin line, reached by a different move order (a transposition). Declining with 3...Nf6 avoids all of the Morra's attacking ideas."
+    },
+    {
+      "name": "Grand Prix Attack: 2.Nc3 and f4",
+      "pgn": "1. e4 c5 2. Nc3 Nc6 {Develop and control d4.} 3. f4 {The Grand Prix Attack: White wants a kingside attack.} 3... g6 {Fianchetto: the bishop hits the long diagonal.} 4. Nf3 Bg7 {The bishop takes the long diagonal.} 5. Bc4 e6 {Blunt the c4 bishop and stop f5 ideas.} 6. O-O Nge7 {The knight on e7 supports ...d5. Next: ...O-O and ...d5.}",
+      "explain": "Against the Grand Prix, ...e6 and ...d5 neutralise the c4 bishop. Then your g7 bishop and queenside space give you a good game."
+    },
+    {
+      "name": "Moscow: 3.Bb5+",
+      "pgn": "1. e4 c5 2. Nf3 d6 3. Bb5+ {The Moscow Variation: White wants to trade off pieces.} 3... Bd7 {Block and offer the bishop trade.} 4. Bxd7+ Qxd7 {Recapture with the queen so the knight can still go to c6.} 5. c4 {White builds a Maroczy-style grip on d5.} 5... Nc6 {Develop and control d4.} 6. Nc3 g6 {Fianchetto: the g7 bishop works against the d4 square.}",
+      "explain": "Trading light bishops is fine for you. Put your dark bishop on g7, castle, and fight for d4 and ...b5 or ...f5 breaks."
+    }
+  ]
+}

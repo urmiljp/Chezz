@@ -1,0 +1,58 @@
+{
+  "id": "forks",
+  "order": 2,
+  "title": "Forks",
+  "category": "Tactics",
+  "summary": "One piece attacks two targets; the opponent can only save one.",
+  "weakness": [
+    "tag:fork"
+  ],
+  "drill": {
+    "themes": [
+      "fork"
+    ],
+    "count": 10
+  },
+  "body": "A **fork** is one piece attacking two things at once. Knights are the best forkers because their attack can't be blocked, but every piece - even a pawn - can fork.\n\nHow to find forks:\n- Look for **two loose targets** (the king, the queen, an undefended rook or minor piece).\n- Find a square from which one of your pieces hits **both**.\n- A **check** is the strongest first prong: the opponent must answer it, then you take the other target.",
+  "examples": [
+    {
+      "fen": "r3k3/8/8/1N6/8/8/5PPP/6K1 w - - 0 1",
+      "solution": [
+        "b5c7",
+        "e8f7",
+        "c7a8"
+      ],
+      "prompt": "White to move. Find a knight jump that hits two targets.",
+      "explain": "Nc7+ checks the king and attacks the rook on a8. After the king moves, Nxa8 wins the rook.",
+      "accept": [
+        [
+          "b5c7"
+        ],
+        [
+          "c7a8"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "r1bqkb1r/pppp1ppp/2n5/4p3/2B1N3/5N2/PPPP1PPP/R1BQK2R b KQkq - 0 5",
+      "solution": [
+        "d7d5",
+        "c4d3",
+        "d5e4"
+      ],
+      "prompt": "Black to move. White just recaptured on e4. Win your piece back.",
+      "explain": "The 'fork trick': d5 attacks both the bishop on c4 and the knight on e4. White saves one, Black takes the other and material is level.",
+      "accept": [
+        [
+          "d7d5"
+        ],
+        [
+          "c6b4",
+          "d5e4"
+        ]
+      ],
+      "orientation": "black"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+/* Board theme: cool slate squares drawn with one conic gradient (2x2 tile, a8 light), accent highlights. */
+cg-board {
+  background-color: var(--sq-light);
+  background-image: conic-gradient(var(--sq-dark) 0 25%, var(--sq-light) 0 50%, var(--sq-dark) 0 75%, var(--sq-light) 0);
+  background-size: 25% 25%;
+}
+cg-board square.last-move { background-color: var(--sq-last); }
+cg-board square.selected { background-color: var(--sq-select); }
+cg-board square.move-dest { background: radial-gradient(var(--sq-dot) 19%, transparent 21%); }
+cg-board square.oc.move-dest { background: radial-gradient(transparent 0 79%, var(--sq-dot) 81%); }
+cg-board square.move-dest:hover,
+cg-board square.move-dest.hover { background: var(--sq-select); }
+cg-board square.premove-dest { background: radial-gradient(var(--sq-dot) 19%, transparent 21%); }
+cg-board square.current-premove { background-color: var(--sq-select); }
+cg-board square.check { background: radial-gradient(ellipse at center, rgba(222, 52, 52, 0.95) 0%, rgba(222, 52, 52, 0.55) 35%, rgba(222, 52, 52, 0) 80%); }
+
+/* Coordinates: on the edge squares, in the opposite square colour (same parity rules as chessground's themes). */
+cg-container coords { font-family: var(--font-ui); font-weight: 650; font-size: 11px; }
+.orientation-white .ranks :nth-child(odd),
+.orientation-white .files :nth-child(even),
+.orientation-black .ranks :nth-child(even),
+.orientation-black .files :nth-child(odd) { color: var(--sq-dark); }
+.orientation-white .ranks :nth-child(even),
+.orientation-white .files :nth-child(odd),
+.orientation-black .ranks :nth-child(odd),
+.orientation-black .files :nth-child(even) { color: var(--sq-light); }

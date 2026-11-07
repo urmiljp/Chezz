@@ -1,0 +1,39 @@
+{
+  "id": "ruy-lopez",
+  "order": 102,
+  "title": "Ruy Lopez (Spanish)",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.e4 e5 2.Nf3 Nc6 3.Bb5: pressure the defender of e5 and win the long fight for the center.",
+  "weakness": [
+    "opening:Ruy Lopez"
+  ],
+  "body": "The Ruy Lopez is the main line of 1.e4 e5. The bishop on b5 attacks the c6 knight, the piece that defends e5. It is not a direct threat yet: 4.Bxc6 dxc6 5.Nxe5? Qd4! wins the pawn back. The pressure builds slowly.\n\nYour plan:\n- Castle, play **Re1**, then **c3** and **d4** for a strong center.\n- Keep the bishop: after ...a6 and ...b5 it retreats to **a4** and **b3**, where it eyes f7.\n- Play **h3** before d4 so ...Bg4 can't pin your knight.\n\nWhat Black usually does:\n- **3...a6** (Morphy Defense) and the Closed Ruy with ...Be7, ...b5, ...d6.\n- **3...Nf6** (Berlin): solid. The quiet 4.d3 keeps the game simple.\n- The **Marshall Attack** (8...d5): a pawn sacrifice for a kingside attack.\n\nCommon mistakes at club level:\n- Taking on c6 and then grabbing e5 too early.\n- Leaving the b5 bishop to be trapped by ...a6, ...b5 and ...c4 (the Noah's Ark trap).\n- Forgetting h3 and getting the f3 knight pinned.",
+  "lines": [
+    {
+      "name": "Closed Ruy Lopez: main line",
+      "pgn": "1. e4 {Claim the center.} e5 2. Nf3 {Develop and attack e5.} Nc6 {Defends e5.} 3. Bb5 {The Spanish bishop attacks the defender of e5.} a6 {The Morphy Defense: ask the bishop what it wants.} 4. Ba4 {Keep the pin. 4.Bxc6 is the Exchange Variation.} Nf6 {Develops and attacks e4.} 5. O-O {Castle. e4 is safe for now, since ...Nxe4 runs into Re1 ideas.} Be7 {Black prepares to castle too.} 6. Re1 {Now e4 is really protected, and the threat is Bxc6 and Nxe5.} b5 {Black stops that threat by kicking the bishop.} 7. Bb3 {The bishop moves to the a2-g8 diagonal, pointing at f7.} d6 {Black supports e5.} 8. c3 {Makes a retreat square for the bishop and prepares d4.} O-O 9. h3 {Stops ...Bg4. Next you play d4 with a classic Ruy Lopez center.}",
+      "explain": "This position after 9.h3 has been played in thousands of grandmaster games. The plan: d4, Nbd2-f1-g3 and slow kingside pressure."
+    },
+    {
+      "name": "Marshall Attack: 8...d5",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 O-O {Black castles first, preparing the Marshall.} 8. c3 {Normal and principled. (8.h3 or 8.a4 are the anti-Marshall moves if you want to avoid it.)} 8... d5 {The Marshall Attack: Black sacrifices a pawn to open lines against your king.} 9. exd5 {Accept the gambit pawn.} 9... Nxd5 10. Nxe5 {Take the second pawn.} 10... Nxe5 11. Rxe5 {You are now two pawns up, but Black is about to win one back.} 11... c6 {Black gives the e5 pawn for good: the bishop goes to d6 and the queen to h4.} 12. d4 {Develop and hold the center. Next come Re1, Be3 and Nd2 to defend the king.}",
+      "explain": "You are a pawn up but must defend precisely against ...Bd6, ...Qh4 and ...Bg4. If you prefer a quiet life, play 8.h3 or 8.a4 instead of 8.c3."
+    },
+    {
+      "name": "Berlin Defense: the quiet 4.d3",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 {The Berlin Defense: the solid choice of world champions.} 4. d3 {Protect e4 and avoid the drawish Berlin endgame after 4.O-O Nxe4.} 4... Bc5 {The most active spot for the bishop.} 5. c3 {Prepares d4 and a retreat square for the bishop.} 5... O-O 6. O-O {Castle. Your king is safe and the rook can go to e1.} 6... d6 7. h3 {The usual prophylaxis against ...Bg4.} 7... a6 8. Ba4 {Keep the bishop. It goes to c2 or b3 later.}",
+      "explain": "The 4.d3 Berlin gives a slow position like the Giuoco Pianissimo. Plan: Re1, Nbd2-f1-g3, then d4 when Black runs out of useful moves."
+    },
+    {
+      "name": "Exchange Variation",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 {The Exchange Variation: give up the bishop to damage Black's pawns.} 4... dxc6 {Black takes toward the center and opens lines for the bishops.} 5. O-O {Now Nxe5 is a real threat, since the e4 pawn is defended against ...Qd4 tricks.} 5... f6 {Black protects e5 with a pawn.} 6. d4 {Open the center.} 6... exd4 7. Nxd4 {Recapture with a centralized knight.} 7... c5 {Black chases the knight.} 8. Nb3 {Retreat and offer the queen trade.} 8... Qxd1 9. Rxd1 {In the endgame, your 4-vs-3 pawn majority on the kingside can create a passed pawn. Black's doubled c-pawns can't.}",
+      "explain": "The Exchange is Fischer's favorite. Black has the bishop pair, but you have the healthier pawns. Trade pieces and aim for an endgame."
+    },
+    {
+      "name": "Open Ruy Lopez: 5...Nxe4",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Nxe4 {The Open Variation: Black takes the pawn for active piece play.} 6. d4 {Open the center while the black king is still uncastled.} 6... b5 {Black must stop Bxc6 followed by dxe5.} 7. Bb3 {Retreat with the bishop pointing at d5 and f7.} 7... d5 {Supports the knight on e4.} 8. dxe5 {Your pawn on e5 cramps Black.} 8... Be6 9. c3 {Keeps a retreat square for the bishop on c2 and supports the center. Next come Nbd2 and Bc2 to attack the e4 knight.}",
+      "explain": "In the Open Ruy, the e4 knight is Black's pride. Attack it with Nbd2 and Bc2, and use your e5 pawn to gain space on the kingside."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "french-defense",
+  "order": 112,
+  "title": "French Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.e4 e6 2.d4 d5: a solid pawn chain and counterattacks with ...c5 and ...f6.",
+  "weakness": [
+    "opening:French Defense"
+  ],
+  "body": "The French challenges e4 with ...d5, supported by ...e6. The game usually becomes a battle of **pawn chains**. When White plays e5, you attack the base of the chain with **...c5**, and sometimes the head with **...f6**.\n\nYour plan:\n- Hit d4 with **...c5**, **...Nc6** and **...Qb6**.\n- Use **...f6** to break the e5 pawn when the moment is right.\n- Your light-squared bishop is the problem piece. Trade it, or get it out via d7-b5 or ...b6 and ...Ba6.\n\nVariations you'll meet:\n- **Advance (3.e5)**: attack d4 at once with ...c5, ...Nc6, ...Qb6.\n- **Winawer (3.Nc3 Bb4)**: the sharpest. Doubled c-pawns for White.\n- **Classical (3.Nc3 Nf6)** and **Tarrasch (3.Nd2)**.\n- **Exchange (3.exd5)**: symmetrical and calm.\n\nTrap to avoid:\n- In the Advance, after 6.Bd3 cxd4 7.cxd4, never take 7...Nxd4? 8.Nxd4 Qxd4?? 9.Bb5+, which wins your queen. Play 7...Bd7 first.",
+  "lines": [
+    {
+      "name": "Advance: 3.e5 c5 and 6.a3 c4",
+      "pgn": "1. e4 e6 {The French: prepare ...d5.} 2. d4 d5 {Challenge e4.} 3. e5 {The Advance: White gains space.} c5 {Attack the base of the chain at once.} 4. c3 Nc6 {More pressure on d4.} 5. Nf3 Qb6 {Third attacker on d4, and the queen eyes b2.} 6. a3 {White prepares b4.} c4 {Close the queenside and stop b4. Next: ...Bd7, ...Na5 and ...Nge7.}",
+      "explain": "With ...c4 you gain queenside space and fix b2/b3 as targets. Your knight can head to b3 via a5. Later, ...f6 hits White's center."
+    },
+    {
+      "name": "Advance trap: 6.Bd3",
+      "pgn": "1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3 Qb6 6. Bd3 {Looks harmless, but sets a trap.} 6... cxd4 {Release the tension; the c-file opens for your pieces.} 7. cxd4 Bd7 {Correct! 7...Nxd4? 8.Nxd4 Qxd4?? 9.Bb5+ uncovers an attack on your queen.}",
+      "explain": "After 7...Bd7, Black really does threaten ...Nxd4, so White often gambits with 8.O-O (the Milner-Barry Gambit). Remember the Bb5+ trick."
+    },
+    {
+      "name": "Winawer: 3.Nc3 Bb4",
+      "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Bb4 {The Winawer: pin the knight that defends e4.} 4. e5 c5 {Hit the base of the chain.} 5. a3 Bxc3+ {Give up the bishop to double White's pawns.} 6. bxc3 Ne7 {The knight goes to e7 so ...Nf5 or ...Nbc6 can follow.} 7. Qg4 {White attacks g7.} O-O {Castle; the king is safe enough.} 8. Bd3 Nbc6 {Develop and pressure d4. White's doubled c-pawns are a long-term target.}",
+      "explain": "A sharp line. White attacks on the kingside; you go after the weak c3 and a3 pawns with ...Qa5 and ...Ba4, and pressure d4."
+    },
+    {
+      "name": "Classical: Steinitz 4.e5",
+      "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 {The Classical: attack e4 with a piece.} 4. e5 Nfd7 {The knight steps aside and supports ...c5.} 5. f4 {White supports e5 with a big pawn center.} 5... c5 {Hit the base of the chain.} 6. Nf3 Nc6 {More pressure on d4.} 7. Be3 {White defends d4 a third time.} 7... cxd4 {Trade to open the c-file.} 8. Nxd4 Bc5 {Pin and pressure the d4 knight. The fight for d4 decides the game.}",
+      "explain": "Pile up on d4 with ...Bc5, ...Qb6 and ...Nc6. If White's d4 falls or trades off, your pieces become very active."
+    },
+    {
+      "name": "Tarrasch: 3.Nd2 c5",
+      "pgn": "1. e4 e6 2. d4 d5 3. Nd2 {The Tarrasch: avoids the Winawer pin.} 3... c5 {Strike at d4 at once.} 4. exd5 Qxd5 {Recapture with the queen; it can't be harassed by Nc3.} 5. Ngf3 cxd4 {Take on d4; White will win it back.} 6. Bc4 Qd6 {The queen steps back to a safe central square.} 7. O-O Nf6 {Develop and guard your kingside.} 8. Nb3 Nc6 {Develop. White will win back d4.} 9. Nbxd4 a6 {Prepare ...b5 and ...Bb7 for quick, free development.}",
+      "explain": "You get a free, open position with no weak pawns. Develop quickly with ...Be7, ...O-O and ...b5."
+    },
+    {
+      "name": "Exchange: 3.exd5",
+      "pgn": "1. e4 e6 2. d4 d5 3. exd5 {The Exchange Variation: symmetrical and calm.} 3... exd5 {Now your light bishop is free.} 4. Nf3 Bd6 {Develop the bishop to its best diagonal.} 5. Bd3 Nf6 {Develop and prepare to castle.} 6. O-O O-O {Castle.} 7. Bg5 Bg4 {Copy White's development. Symmetrical, equal, and easy to play.}",
+      "explain": "The Exchange French is level. Your light bishop is no longer a problem. Use the e-file and aim for ...Nbd7, ...c6 and ...Qc7."
+    }
+  ]
+}

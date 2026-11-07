@@ -1,0 +1,45 @@
+{
+  "id": "nimzo-indian",
+  "order": 119,
+  "title": "Nimzo-Indian Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.d4 Nf6 2.c4 e6 3.Nc3 Bb4: pin the knight, control e4, and play against doubled pawns.",
+  "weakness": [
+    "opening:Nimzo-Indian Defense",
+    "opening:Queen's Indian Defense"
+  ],
+  "body": "The Nimzo-Indian is one of the most respected defenses in chess. **3...Bb4** pins the c3 knight so White can't easily play e4. Often you give the bishop for the knight, leaving White with **doubled c-pawns**.\n\nYour plan:\n- Control **e4** with ...Bb4, ...Nf6, ...b6 and ...Bb7, or ...d5.\n- If you take on c3, close the position and attack the doubled pawns with **...c5, ...Nc6, ...b6** and **...Ba6**.\n- Castle quickly. Your structure is healthy.\n\nVariations you'll meet:\n- **Rubinstein (4.e3)**: the most classical.\n- **Classical (4.Qc2)**: White recaptures on c3 with the queen to avoid doubled pawns.\n- **Sämisch (4.a3)**: White forces the doubled pawns at once.\n- **Leningrad (4.Bg5)** and **Kasparov (4.Nf3, g3)**.\n- If White avoids it with **3.Nf3**, play **3...b6**, the Queen's Indian.",
+  "lines": [
+    {
+      "name": "Rubinstein: 4.e3",
+      "pgn": "1. d4 Nf6 {Develop and control e4.} 2. c4 e6 {Open the f8 bishop for ...Bb4.} 3. Nc3 Bb4 {The Nimzo-Indian: pin the knight.} 4. e3 {The Rubinstein system: develop calmly.} 4... O-O {Castle.} 5. Bd3 d5 {Claim the center.} 6. Nf3 c5 {Hit d4.} 7. O-O dxc4 {Take once White's bishop has moved, so you win a tempo.} 8. Bxc4 Nbd7 {A classic position with level chances. Plans: ...a6, ...b5 and ...Bb7.}",
+      "explain": "White often gets an isolated d-pawn here. Blockade it on d5 and trade pieces."
+    },
+    {
+      "name": "Classical: 4.Qc2",
+      "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qc2 {White wants to take back on c3 with the queen.} 4... O-O {Castle.} 5. a3 Bxc3+ {Take now; White uses a move to recapture with the queen.} 6. Qxc3 d5 {Fight for the center at once.} 7. Nf3 dxc4 {Gain time on the queen.} 8. Qxc4 b6 {Develop the bishop on the long diagonal or a6.} 9. Bg5 Ba6 {Develop with tempo on the queen.}",
+      "explain": "White has the bishop pair; you have quick development. Use the tempo moves on the queen to finish developing."
+    },
+    {
+      "name": "Sämisch: 4.a3",
+      "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 {The Sämisch: White forces the issue.} 4... Bxc3+ {Give the bishop to double White's pawns.} 5. bxc3 c5 {Fix the doubled pawns.} 6. e3 Nc6 {Pressure on d4.} 7. Bd3 O-O {Castle.} 8. Ne2 b6 {Next ...Ba6 to hit c4, the weakest pawn.}",
+      "explain": "Pile up on c4 with ...Ba6, ...Na5 and ...Rc8. White will try f3 and e4 for a center; stop it with ...Ne8 and ...f5 if needed."
+    },
+    {
+      "name": "Leningrad: 4.Bg5",
+      "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5 {The Leningrad: White pins your knight back.} 4... h6 {Ask the bishop to decide.} 5. Bh4 c5 {Hit the center.} 6. d5 d6 {Hold e5 and prepare ...e5 or ...exd5.} 7. e3 Bxc3+ {Double White's pawns.} 8. bxc3 e5 {Close the center: your knights are better than White's bishops in a closed position.}",
+      "explain": "In closed positions, knights beat bishops. Play ...Nbd7, ...Qe7 and ...e4 or ...g5 to get rid of the h4 pin."
+    },
+    {
+      "name": "Kasparov: 4.Nf3 and g3",
+      "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3 c5 {Hit d4 at once.} 5. g3 {The Kasparov Variation: a fianchetto.} 5... cxd4 {Open the position.} 6. Nxd4 O-O {Castle.} 7. Bg2 d5 {Open the center while White's king is uncastled.} 8. cxd5 Nxd5 {Active pieces and a solid game.}",
+      "explain": "The center is open and your pieces are active. Watch the long diagonal from the g2 bishop; ...Qb6 and ...Nc6 are typical."
+    },
+    {
+      "name": "If 3.Nf3: Queen's Indian",
+      "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 {White avoids the Nimzo.} b6 {The Queen's Indian: control e4 from b7 or a6.} 4. g3 Ba6 {Hit c4 at once.} 5. b3 Bb4+ {Disrupt White's development.} 6. Bd2 Be7 {Retreat: the white bishop on d2 now stands awkwardly. Next: ...c6, ...d5 and ...O-O.}",
+      "explain": "In the Queen's Indian, your bishops control the light squares. A solid, flexible system: ...O-O, ...d5 or ...c6 and ...d5."
+    }
+  ]
+}

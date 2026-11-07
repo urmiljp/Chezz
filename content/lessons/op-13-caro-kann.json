@@ -1,0 +1,44 @@
+{
+  "id": "caro-kann",
+  "order": 113,
+  "title": "Caro-Kann Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.e4 c6 2.d4 d5: a rock-solid center, with the light bishop developed before ...e6.",
+  "weakness": [
+    "opening:Caro-Kann Defense"
+  ],
+  "body": "The Caro-Kann prepares ...d5 with ...c6. Unlike the French, your light-squared bishop gets out *before* you play ...e6. It's one of the safest defenses to 1.e4 and leads to solid, healthy positions.\n\nYour plan:\n- Get the **c8 bishop to f5 or g4**, then play **...e6**.\n- Strike with **...c5** in the Advance, and **...e5** or **...c5** in the Classical.\n- Castle, then fight for the center with **...Nd7**, **...Ngf6**, **...Qc7**.\n\nVariations you'll meet:\n- **Classical (3.Nc3 dxe4 4.Nxe4 Bf5)**: the main line.\n- **Advance (3.e5 Bf5)**: the most popular at club level.\n- **Exchange (3.exd5 cxd5 4.Bd3)** and **Panov (4.c4)**.\n- **Two Knights (2.Nc3 d5 3.Nf3)**.\n\nTrap to avoid:\n- 3.Nc3 dxe4 4.Nxe4 Nd7 5.Qe2 Ngf6?? 6.Nd6# is a smothered mate. Watch the d6 square.",
+  "lines": [
+    {
+      "name": "Classical: 4...Bf5",
+      "pgn": "1. e4 c6 {Prepare ...d5.} 2. d4 d5 {Challenge e4, supported by the c6 pawn.} 3. Nc3 dxe4 {Trade on e4.} 4. Nxe4 Bf5 {The Classical: develop the bishop with tempo on the knight.} 5. Ng3 Bg6 {Retreat; the bishop is safe on g6.} 6. h4 {White threatens h5 to trap the bishop.} 6... h6 {Give the bishop a retreat square on h7.} 7. Nf3 Nd7 {Stop Ne5, which would hit the g6 bishop.} 8. h5 Bh7 {Retreat to the square you prepared with ...h6.} 9. Bd3 Bxd3 {Trade the bishops.} 10. Qxd3 e6 {A solid position. Next: ...Ngf6, ...Qc7 and castling, often queenside.}",
+      "explain": "A classic, rock-solid structure. White has a bit more space, but you have no weaknesses. Castle and play ...c5 or ...e5 later."
+    },
+    {
+      "name": "Advance: Short System 4.Nf3",
+      "pgn": "1. e4 c6 2. d4 d5 3. e5 {The Advance: White gains space.} 3... Bf5 {Get the bishop out before ...e6.} 4. Nf3 e6 {Now ...e6 is fine: your bishop is already outside the pawn chain.} 5. Be2 c5 {Hit the base of the chain, as in the French.} 6. O-O Nc6 {Develop and pressure d4.} 7. c3 cxd4 {Trade to open the c-file.} 8. cxd4 Nge7 {The knight goes to c6 or f5 via e7 and adds pressure on d4.}",
+      "explain": "Your pieces aim at d4: ...Nf5, ...Nc6, ...Qb6. The light bishop is already out, so this is a happy version of the French Advance."
+    },
+    {
+      "name": "Advance: aggressive 4.Nc3 and g4",
+      "pgn": "1. e4 c6 2. d4 d5 3. e5 Bf5 4. Nc3 e6 {Support d5 and open the f8 bishop.} 5. g4 {The sharp line: chase the bishop.} 5... Bg6 {Retreat. The bishop stays on the good diagonal.} 6. Nge2 c5 {Strike back in the center. When White goes for the flank, hit the center.}",
+      "explain": "White's g4 push weakens the kingside. Counterattack with ...c5, ...Nc6 and ...Qb6. Don't hurry to castle kingside into the pawn storm."
+    },
+    {
+      "name": "Exchange: 3.exd5 cxd5 4.Bd3",
+      "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 {Symmetrical pawns, but your c-file is half-open.} 4. Bd3 Nc6 {Develop and control d4 and e5.} 5. c3 Nf6 {Develop and guard d5.} 6. Bf4 Bg4 {Develop the bishop actively.} 7. Qb3 {White hits b7.} 7... Qd7 {Defend b7 and connect your pieces.} 8. Nd2 e6 {Solid. Your plan is the minority attack: ...b5-b4 against c3.}",
+      "explain": "You have the Queen's Gambit Exchange structure with colors reversed. The minority attack with ...a6, ...b5 and ...b4 is your plan."
+    },
+    {
+      "name": "Panov Attack: 4.c4",
+      "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4 {The Panov: White goes for an isolated d-pawn position.} 4... Nf6 {Develop and defend d5.} 5. Nc3 e6 {Solid development.} 6. Nf3 Be7 {Prepare to castle.} 7. cxd5 Nxd5 {White now has an isolated d4 pawn. Blockade it on d5 and trade pieces.}",
+      "explain": "Against the isolated pawn: blockade d5, trade minor pieces, and the d4 pawn becomes a weakness in the endgame."
+    },
+    {
+      "name": "Two Knights: 2.Nc3 d5 3.Nf3",
+      "pgn": "1. e4 c6 2. Nc3 d5 {Challenge e4.} 3. Nf3 {The Two Knights Variation.} 3... Bg4 {Pin the knight.} 4. h3 Bxf3 {Give up the bishop pair to get a solid center.} 5. Qxf3 Nf6 {Develop and pressure e4.} 6. d3 e6 {Open the bishop and guard d5.} 7. Bd2 Nbd7 {Solid. Plans: ...Bc5 or ...Bb4, castle, and ...e5 or ...d4.}",
+      "explain": "White has the bishop pair, but your center is strong and your pieces develop easily. A solid, equal position."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "opposition",
+  "order": 9,
+  "title": "King and pawn: the opposition",
+  "category": "Endgames",
+  "summary": "In pawn endings the kings fight; the side that takes the opposition wins the race.",
+  "weakness": [
+    "phase:endgame"
+  ],
+  "drill": {
+    "themes": [
+      "pawnEndgame"
+    ],
+    "count": 10
+  },
+  "body": "With king and pawn against king, the **kings decide** the result.\n\n- **Opposition:** kings face each other with one square between them. The side *not* to move has the opposition and wins the standoff.\n- **Attacker:** put your king **in front of** your pawn, not behind it. A king on the 6th rank in front of its pawn always wins (except rook pawns).\n- **Defender:** stand in front of the pawn and take the opposition when the enemy king approaches.",
+  "examples": [
+    {
+      "fen": "8/8/8/4k3/8/8/3KP3/8 w - - 0 1",
+      "solution": [
+        "d2e3"
+      ],
+      "prompt": "White to move and win. Where does your king belong?",
+      "explain": "Ke3! takes the opposition (kings on e3 and e5, Black to move). Black must give way and your king marches in front of the pawn. Every other move draws.",
+      "accept": [
+        [
+          "d2e3"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "4k3/8/8/4K3/4P3/8/8/8 w - - 0 1",
+      "solution": [
+        "e5d6"
+      ],
+      "prompt": "White to move and win.",
+      "explain": "Go forward with the king, not the pawn: Kd6 (or Ke6/Kf6) reaches the sixth rank in front of the pawn, which always wins.",
+      "accept": [
+        [
+          "e5d6",
+          "e5e6",
+          "e5f6"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "8/8/4k3/8/8/4K3/4P3/8 b - - 0 1",
+      "solution": [
+        "e6e5"
+      ],
+      "prompt": "Black to move and draw.",
+      "explain": "Ke5! takes the opposition. Any other king move lets White's king get in front of the pawn and win.",
+      "accept": [
+        [
+          "e6e5"
+        ]
+      ],
+      "orientation": "black"
+    }
+  ]
+}

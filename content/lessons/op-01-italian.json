@@ -1,0 +1,39 @@
+{
+  "id": "italian-game",
+  "order": 101,
+  "title": "Italian Game",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.e4 e5 2.Nf3 Nc6 3.Bc4: develop fast, aim at f7, then build the center with c3 and d4.",
+  "weakness": [
+    "opening:Italian Game"
+  ],
+  "body": "The Italian is the oldest opening still played at every level. White develops the knight to attack e5 and puts the bishop on the diagonal pointing at **f7**, the square only the black king defends.\n\nYour plan:\n- Castle early, then play **c3** to prepare **d4** and a big pawn center.\n- In the slow version (**d3**), reroute the queen knight **Nbd2-f1-g3** toward the kingside.\n- Play **h3** before Black can pin your knight with ...Bg4.\n\nWhat Black usually does:\n- **3...Bc5** (Giuoco Piano): mirror development. Meet it with c3 and d4, or the slow d3.\n- **3...Nf6** (Two Knights): counterattacks e4. 4.Ng5 attacks f7 and leads to sharp play.\n\nCommon mistakes at club level:\n- Moving the same piece twice or bringing the queen out early.\n- Forgetting that after c3 your d3 or d4 pawn needs protecting.\n- Grabbing pawns with 4.Ng5 and then falling behind in development.",
+  "lines": [
+    {
+      "name": "Giuoco Piano: c3 and d4",
+      "pgn": "1. e4 {Claims the center and opens lines for the queen and the f1 bishop.} 1... e5 {Black takes an equal share of the center.} 2. Nf3 {Develops and attacks e5 at once.} 2... Nc6 {The natural defense of e5.} 3. Bc4 {The Italian bishop: it points at f7, the weakest square near the black king.} 3... Bc5 {Giuoco Piano, the quiet game. Black mirrors you and eyes f2.} 4. c3 {Prepares d4. The pawn also takes the d4 square away from the black knight.} 4... Nf6 {Develops and attacks e4.} 5. d4 {Strike in the center now, while Black has not castled.} 5... exd4 {Black has to release the tension.} 6. cxd4 {You get the ideal pawn center: e4 and d4 side by side.} 6... Bb4+ {The bishop is attacked, so it checks on its way out.} 7. Bd2 {Blocks the check and offers a trade of bishops.} 7... Bxd2+ 8. Nbxd2 {Recapture with a developing move; the knight also guards e4.} 8... d5 {Black breaks your center before it can roll forward with e5.} 9. exd5 {Take back; the center opens while you lead in development.} 9... Nxd5 10. Qb3 {Hits the d5 knight and the b7 pawn. You will have an isolated d-pawn but very active pieces.}",
+      "explain": "After 10.Qb3 Black usually plays 10...Nce7 and both sides castle. Your pieces are freer; keep them active and use the open e-file."
+    },
+    {
+      "name": "Giuoco Pianissimo: the slow d3 plan",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d3 {The modern, slow choice: protect e4 first and build up quietly.} d6 6. O-O {King to safety before any action.} O-O 7. Re1 {The rook supports e4 and prepares d4 later.} a6 {Makes room for the bishop to retreat to a7, away from a d4 push.} 8. Bb3 {Step back before Black plays ...b5 or ...Na5 with tempo.} Ba7 9. h3 {Stops ...Bg4 and ...Ng4. A small move that saves you a lot of trouble.} h6 10. Nbd2 {The knight starts its journey to the kingside.} Re8 11. Nf1 {Next comes Ng3 and later d4, a classic grandmaster setup.}",
+      "explain": "This is the setup most top players use today. Nothing forcing happens, so it is easy to learn: develop, castle, Re1, h3, Nbd2-f1-g3, then d4 when ready."
+    },
+    {
+      "name": "Two Knights: 4.Ng5 main line",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 {Two Knights Defense: Black counterattacks e4 instead of developing the bishop.} 4. Ng5 {Attacks f7 twice, with the knight and bishop. Only the king and queen defend it.} 4... d5 {The only good defense: block the bishop's diagonal.} 5. exd5 {Take the pawn.} 5... Na5 {The correct reply: chase the bishop away from f7. (5...Nxd5? allows the Fried Liver attack.)} 6. Bb5+ {The bishop checks and stays active.} 6... c6 7. dxc6 {Grab another pawn. Black's pieces get active, but you are material up.} 7... bxc6 8. Be2 {Retreat and keep the extra pawn.} 8... h6 {Kicks the knight from g5.} 9. Nf3 {The only good square: the knight retreats and keeps an eye on e5.} 9... e4 {Black gains space and attacks the knight again.} 10. Ne5 {The knight finds a strong central outpost. You are a pawn up; Black has faster development.}",
+      "explain": "You are a pawn up, but Black has quick development as compensation. Castle, keep the extra pawn, and don't hurry."
+    },
+    {
+      "name": "Fried Liver: punishing 5...Nxd5",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 {A natural but risky recapture. The d5 knight and the f7 pawn are both weak.} 6. Nxf7 {The Fried Liver sacrifice: the knight takes on f7 to drag the king out.} Kxf7 7. Qf3+ {Check, and the queen attacks the pinned d5 knight.} Ke6 {The king must stay near d5 to defend it.} 8. Nc3 {Third attacker on d5. The black king is in the middle of the board; keep bringing pieces with d4 and O-O.}",
+      "explain": "Against the Fried Liver, Black's king is exposed in the center for a long time. Keep attacking with d4, O-O and Re1. This is why 5...Na5 is the correct defense."
+    },
+    {
+      "name": "Evans Gambit",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 {The Evans Gambit: give a pawn to gain time for c3 and d4.} Bxb4 {Accepting is the most common reply.} 5. c3 {Gains a tempo on the bishop and prepares d4.} Ba5 {The bishop keeps an eye on c3.} 6. d4 {Open the center while the black king is still on e8.} exd4 7. O-O {Castle first and bring every piece into the attack. Your lead in development is worth more than the pawn.}",
+      "explain": "In the Evans you are a pawn down but way ahead in development. Typical follow-ups: Qb3 hitting f7, Ba3 stopping Black from castling, and Re1 against the king in the center."
+    }
+  ]
+}

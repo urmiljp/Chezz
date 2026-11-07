@@ -1,0 +1,36 @@
+{
+  "id": "slav-defense",
+  "order": 120,
+  "title": "Slav Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.d4 d5 2.c4 c6: hold d5 with a pawn and keep the light bishop free.",
+  "weakness": [
+    "opening:Slav Defense",
+    "opening:Semi-Slav Defense",
+    "opening:Queen's Gambit Declined"
+  ],
+  "body": "The Slav meets the Queen's Gambit by supporting d5 with the c-pawn. Unlike the Queen's Gambit Declined, the **c8 bishop isn't blocked**: it comes out to f5 or g4 before ...e6.\n\nYour plan:\n- Solid center with **...d5 and ...c6**.\n- Develop the light bishop to **f5** or **g4**, then play **...e6** and **...Nbd7**.\n- Often take on c4 and keep the pawn with **...b5**, or give it back for easy development.\n\nVariations you'll meet:\n- **Main line (4.Nc3 dxc4 5.a4)**: you develop ...Bf5, ...e6, ...Bb4.\n- **Exchange (3.cxd5)**: symmetrical. Stay alert, since the side to move has the initiative.\n- **Quiet 4.e3**: play ...Bf5 at once.\n\nCommon mistakes at club level:\n- Playing ...e6 too early. Then you have a passive QGD with an extra ...c6.\n- After taking on c4, hanging on to the pawn too stubbornly and falling behind.",
+  "lines": [
+    {
+      "name": "Main line: 5.a4 Bf5",
+      "pgn": "1. d4 d5 {Claim the center.} 2. c4 c6 {The Slav: support d5 with the c-pawn.} 3. Nf3 Nf6 {Develop and defend d5.} 4. Nc3 dxc4 {Take the pawn now; White must spend time to win it back.} 5. a4 {Stops ...b5.} 5... Bf5 {Develop the bishop outside the pawn chain.} 6. e3 e6 {Now ...e6: the bishop is already outside the chain.} 7. Bxc4 Bb4 {Pin the knight and fight for e4.} 8. O-O Nbd7 {Develop and support ...e5 or ...c5.} 9. Qe2 O-O {Solid and active. Next: ...Bg6 or ...Ne4 to stop e4.}",
+      "explain": "The classical Slav. White wants e4; your pieces on b4, f5 and f6 stop it. If White plays e4 anyway, ...Bg6 and ...e5 strike back."
+    },
+    {
+      "name": "Exchange Variation",
+      "pgn": "1. d4 d5 2. c4 c6 3. cxd5 {The Exchange: symmetrical pawns.} 3... cxd5 {Recapture: a symmetrical structure.} 4. Nc3 Nf6 {Develop.} 5. Bf4 Nc6 {Develop with the same moves.} 6. e3 Bf5 {Now your bishop is out too. Next: ...e6, ...Bd6 or ...Be7, and castle.}",
+      "explain": "A symmetrical position. Watch out for Qb3 and Nb5 tricks against b7 and c7, and use the c-file yourself."
+    },
+    {
+      "name": "Quiet 4.e3 Bf5",
+      "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. e3 {White closes in the c1 bishop to protect c4.} 4... Bf5 {Develop the bishop before ...e6.} 5. Nc3 e6 {Solid: support d5 and open the f8 bishop.} 6. Nh4 {White wants to trade off your good bishop.} 6... Bg6 {Keep the bishop on its diagonal.} 7. Nxg6 hxg6 {Recapture toward the center. The open h-file can help your rook later.}",
+      "explain": "White has the bishop pair, but your structure is rock-solid and the h-file is half-open. Play ...Nbd7, ...Bd6 and ...O-O or ...Qc7."
+    },
+    {
+      "name": "Holding c4 against 5.e3",
+      "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 5. e3 {White doesn't stop ...b5.} b5 {Keep the c4 pawn.} 6. a4 b4 {Chase the knight away.} 7. Na2 e6 {Prepare ...Be7 and ...O-O.} 8. Bxc4 Be7 {White has won back the pawn, but the a2 knight is offside and your b4 pawn cramps White.}",
+      "explain": "Even when White wins the pawn back, the a2 knight is badly placed. Develop with ...O-O, ...Bb7 and ...c5."
+    }
+  ]
+}

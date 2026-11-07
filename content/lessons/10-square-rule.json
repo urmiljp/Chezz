@@ -1,0 +1,62 @@
+{
+  "id": "square-rule",
+  "order": 10,
+  "title": "Passed pawns: the rule of the square",
+  "category": "Endgames",
+  "summary": "Count the race with one glance: can the king catch the pawn?",
+  "weakness": [
+    "phase:endgame"
+  ],
+  "drill": {
+    "themes": [
+      "pawnEndgame"
+    ],
+    "count": 10
+  },
+  "body": "Draw a square from the passed pawn to its promotion rank (the pawn's distance to promotion is the side).\n\n- If the defending king can **step into the square** on its move, it catches the pawn.\n- If not, the pawn promotes on its own - just **push**.\n- Count before you trade into a pawn ending; one tempo decides it.",
+  "examples": [
+    {
+      "fen": "8/8/8/P3k3/8/8/8/7K w - - 0 1",
+      "solution": [
+        "a5a6",
+        "e5d5",
+        "a6a7",
+        "d5c5",
+        "a7a8q"
+      ],
+      "prompt": "White to move. Can the black king catch your a-pawn?",
+      "explain": "After a6 the black king is outside the square a6-a8-c8-c6 and can't get in. Just push: a7 and a8=Q.",
+      "accept": [
+        [
+          "a5a6"
+        ],
+        [
+          "a6a7"
+        ],
+        [
+          "a7a8q",
+          "a7a8r",
+          "h1g1",
+          "h1g2",
+          "h1h2"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "k7/8/8/7p/8/8/8/2K5 w - - 0 1",
+      "solution": [
+        "c1d2"
+      ],
+      "prompt": "White to move. Stop the h-pawn.",
+      "explain": "Kd2 steps into the square d1-h1-h5-d5, so your king reaches the pawn in time. Any other move is too slow.",
+      "accept": [
+        [
+          "c1d1",
+          "c1d2"
+        ]
+      ],
+      "orientation": "white"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "king-safety",
+  "order": 8,
+  "title": "Opening principle 3: king safety",
+  "category": "Opening principles",
+  "summary": "Castle early, before the center opens.",
+  "weakness": [
+    "phase:opening"
+  ],
+  "drill": {
+    "themes": [
+      "opening"
+    ],
+    "count": 10
+  },
+  "body": "A king in the center gets hit as soon as files open. **Castle early** - usually within the first eight to ten moves.\n\n- Clear the pieces between king and rook, then castle.\n- Don't push the pawns in front of your castled king without a reason.\n- If your opponent hasn't castled and you're ahead in development, **open the center** to attack the king.",
+  "examples": [
+    {
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5",
+      "solution": [
+        "e1g1"
+      ],
+      "prompt": "White to move. Your kingside pieces are developed.",
+      "explain": "O-O tucks the king away and brings the rook toward the center. c3 and Nc3 are fine too, but castling first is the healthy habit.",
+      "accept": [
+        [
+          "b1c3",
+          "c2c3",
+          "e1g1"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 b kq - 1 6",
+      "solution": [
+        "e8g8"
+      ],
+      "prompt": "Black to move. White has castled; you haven't.",
+      "explain": "Castle now. With your king still on e8, an opening of the center (d4 or Ng5 ideas) would hit it first.",
+      "accept": [
+        [
+          "a7a6",
+          "c8g4",
+          "e8g8",
+          "h7h6"
+        ]
+      ],
+      "orientation": "black"
+    }
+  ]
+}

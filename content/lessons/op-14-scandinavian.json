@@ -1,0 +1,39 @@
+{
+  "id": "scandinavian",
+  "order": 114,
+  "title": "Scandinavian Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.e4 d5: challenge e4 at once and get easy, active development.",
+  "weakness": [
+    "opening:Scandinavian Defense"
+  ],
+  "body": "The Scandinavian forces matters on move one. After 2.exd5 Qxd5, your queen comes out early, but it has safe squares (**a5** and **d6**) and you get easy development with ...Nf6, ...Bf5 or ...Bg4, ...c6 and ...e6.\n\nYour plan:\n- Use the **...c6, ...e6** structure, a solid Caro-Kann-like setup with fast piece play.\n- Develop the light bishop *outside* the pawn chain before ...e6.\n- Castle short or long. Your position has no weaknesses.\n\nVariations you'll meet:\n- **3...Qa5**: the classical main line.\n- **3...Qd6**: the modern main line. The queen is a little exposed, but very flexible.\n- **2...Nf6**: recapture with the knight instead of the queen.\n\nCommon mistakes at club level:\n- Moving the queen again and again when it gets attacked. Pick a safe square and develop.\n- Putting the bishop on g4 or f5 when White can trap it with h3, g4 and Ne5 or Nh4.",
+  "lines": [
+    {
+      "name": "Main line: 3...Qa5",
+      "pgn": "1. e4 d5 {The Scandinavian: challenge e4 immediately.} 2. exd5 Qxd5 {Recapture with the queen.} 3. Nc3 {White develops with tempo.} 3... Qa5 {A safe square: the queen pins c3 and eyes e1.} 4. d4 Nf6 {Develop and control e4 and d5.} 5. Nf3 c6 {Give the queen a retreat on c7 and control d5 and b5.} 6. Bc4 Bf5 {Develop the bishop outside the chain before ...e6.} 7. Bd2 e6 {The solid Scandinavian setup. Next: ...Bb4 or ...Nbd7 and castling.}",
+      "explain": "This is the classical Scandinavian structure. Watch the queen on a5 for Nd5 tricks once Bd2 unpins c3; ...c6 and ...Qc7 keep it safe."
+    },
+    {
+      "name": "Modern: 3...Qd6",
+      "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd6 {The modern retreat: central, flexible, and off the a5-e1 diagonal.} 4. d4 Nf6 {Develop with an eye on e4.} 5. Nf3 a6 {Take away b5 from the white knight and bishop.} 6. g3 Bg4 {Pin the knight.} 7. Bg2 Nc6 {Pressure d4 and prepare ...O-O-O.}",
+      "explain": "The queen on d6 is a bit exposed to Nb5 or Bf4, which is why ...a6 helps. Castle long and pressure d4."
+    },
+    {
+      "name": "Knight recapture: 2...Nf6",
+      "pgn": "1. e4 d5 2. exd5 Nf6 {Take back with the knight later, so the queen stays home.} 3. d4 Nxd5 {The knight is centralized on d5.} 4. Nf3 g6 {Fianchetto: the bishop will hit d4.} 5. Be2 Bg7 {The bishop hits d4.} 6. O-O O-O {Calm development. Plan ...c5 or ...Bg4 and ...Nc6 to pressure d4.}",
+      "explain": "A Grünfeld-like setup: the g7 bishop and pieces pressure White's d4 pawn. Avoid letting White play c4 with tempo on the d5 knight without a plan."
+    },
+    {
+      "name": "White plays 3.d4 first",
+      "pgn": "1. e4 d5 2. exd5 Qxd5 3. d4 {White doesn't hit the queen right away.} 3... Nf6 {Develop; the queen is safe on d5 for now.} 4. Nf3 Bg4 {Pin the knight and pressure d4.} 5. Be2 e6 {Solid: open the f8 bishop.} 6. O-O Nc6 {Pressure on d4. Next ...O-O-O or ...Be7 and ...O-O.}",
+      "explain": "When the queen isn't attacked, it can stay on d5 for a while. Use the pressure on d4 with ...Nc6, ...Bg4 and ...O-O-O."
+    },
+    {
+      "name": "Against 4.Bc4",
+      "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. Bc4 {White hits f7 and prepares quick development.} 4... Nf6 {Develop and defend your king.} 5. d3 c6 {Close the a2-g8 diagonal ideas and secure your queen's retreat.} 6. Bd2 Bf5 {Develop actively. Next: ...e6, ...Nbd7 and castling.}",
+      "explain": "The same solid setup as the main line. ...c6, ...Bf5 and ...e6 keep everything protected."
+    }
+  ]
+}

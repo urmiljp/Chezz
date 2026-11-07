@@ -1,0 +1,78 @@
+{
+  "id": "pins-skewers",
+  "order": 3,
+  "title": "Pins and skewers",
+  "category": "Tactics",
+  "summary": "Attack along a line: a pinned piece can't move, a skewered piece must.",
+  "weakness": [
+    "tag:pin",
+    "tag:skewer"
+  ],
+  "drill": {
+    "themes": [
+      "pin",
+      "skewer"
+    ],
+    "count": 10
+  },
+  "body": "Rooks, bishops and queens attack along **lines**. When two enemy pieces stand on the same line, you can exploit it:\n- **Pin:** the front piece is worth less than the one behind it (often the king). It can't move without exposing the bigger piece.\n- **Skewer:** the front piece is the more valuable one (often the king). It must move, and you take what was behind it.\n\nWhenever the enemy king and queen (or king and rook) share a line, look for a piece that can land on it.",
+  "examples": [
+    {
+      "fen": "4k3/4q3/8/8/8/8/5PPP/R4K2 w - - 0 1",
+      "solution": [
+        "a1e1",
+        "e7e1",
+        "f1e1"
+      ],
+      "prompt": "White to move. The king and queen are on the same file.",
+      "explain": "Re1 pins the queen to the king. Taking the rook costs the queen: Qxe1+ Kxe1 leaves White a winning pawn ending.",
+      "accept": [
+        [
+          "a1e1"
+        ],
+        [
+          "f1e1"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "8/4q3/8/8/8/4k3/8/R5K1 w - - 0 1",
+      "solution": [
+        "a1e1",
+        "e3f3",
+        "e1e7"
+      ],
+      "prompt": "White to move. King in front, queen behind.",
+      "explain": "Re1+ is a skewer: the king must step off the e-file, and Rxe7 wins the queen.",
+      "accept": [
+        [
+          "a1e1"
+        ],
+        [
+          "e1e7"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "6r1/8/8/3k4/8/8/6PP/3BK3 w - - 0 1",
+      "solution": [
+        "d1b3",
+        "d5e5",
+        "b3g8"
+      ],
+      "prompt": "White to move. Look along the long light diagonal.",
+      "explain": "Bb3+ checks the king, which has to leave the diagonal, and the bishop then takes the rook on g8.",
+      "accept": [
+        [
+          "d1b3"
+        ],
+        [
+          "b3g8"
+        ]
+      ],
+      "orientation": "white"
+    }
+  ]
+}

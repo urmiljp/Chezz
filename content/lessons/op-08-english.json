@@ -1,0 +1,39 @@
+{
+  "id": "english-opening",
+  "order": 108,
+  "title": "English Opening",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.c4: control d5 from the side, fianchetto with g3 and Bg2, and squeeze.",
+  "weakness": [
+    "opening:English Opening"
+  ],
+  "body": "1.c4 controls d5 without committing your center pawns. In most lines you fianchetto with **g3** and **Bg2**. The bishop on the long diagonal and the c-pawn work together against Black's queenside.\n\nYour plan:\n- Put **Nc3**, **g3**, **Bg2** on the light squares around d5.\n- Use the **c-file** and the **long diagonal** to pressure b7 and c6.\n- Push **b4-b5** to grab queenside space, or play **e4** to change the structure.\n\nWhat Black usually does:\n- **1...e5**: a Sicilian with colors reversed, and you have an extra tempo.\n- **1...c5**: the Symmetrical. The first to break with d4 or ...d5 gets the play.\n- **1...Nf6** and ...g6: King's Indian ideas. Keep the fianchetto setup.\n\nCommon mistakes at club level:\n- Playing too passively and letting Black take the whole center.\n- Pushing d4 before your pieces support it.",
+  "lines": [
+    {
+      "name": "Reversed Sicilian: 1...e5",
+      "pgn": "1. c4 {The English: control d5 from the side.} 1... e5 {Black takes the center: a Sicilian with colors reversed.} 2. Nc3 {Another eye on d5.} 2... Nf6 3. Nf3 {Develop and hit e5.} 3... Nc6 4. g3 {Prepare the fianchetto.} 4... d5 {Black grabs space, like an Open Sicilian for Black.} 5. cxd5 {Trade off Black's center pawn.} 5... Nxd5 6. Bg2 {The bishop pressures the d5 knight and the long diagonal.} 6... Nb6 7. O-O {Castle; the king is safe behind the fianchetto.} 7... Be7 8. d3 {Solid center. The b2-b4-b5 plan and the long diagonal are your trumps.} 8... O-O 9. Be3 {Develop and eye the b6 knight. Next: Rc1 and a queenside push.}",
+      "explain": "You're playing an Open Sicilian with an extra tempo. Look at the queenside: Rc1, a3 and b4-b5 to kick the c6 knight."
+    },
+    {
+      "name": "Closed English: the Botvinnik setup",
+      "pgn": "1. c4 e5 2. Nc3 Nc6 3. g3 {Fianchetto right away.} 3... g6 4. Bg2 {The bishop takes the long diagonal.} 4... Bg7 {Black mirrors you.} 5. e4 {The Botvinnik System: grip d5 with pawns on c4 and e4.} 5... d6 6. Nge2 {The knight goes to e2 so the f-pawn stays free for f4.} 6... Nge7 7. d3 {Solid: support e4 and open the c1 bishop.} 7... O-O 8. O-O {Next plans: f4 on the kingside, or a3, Rb1 and b4 on the queenside.}",
+      "explain": "A solid, strategic setup. Your d5 square is a permanent outpost. Choose a flank to attack: f4 for the kingside, or b4-b5 for the queenside."
+    },
+    {
+      "name": "Symmetrical: 1...c5",
+      "pgn": "1. c4 c5 {The Symmetrical English.} 2. Nc3 {Control d5.} 2... Nc6 3. g3 {Prepare the fianchetto.} 3... g6 4. Bg2 {The bishop hits the long diagonal toward b7.} 4... Bg7 5. Nf3 {Develop and prepare to castle.} 5... Nf6 6. O-O {Castle before breaking in the center.} 6... O-O {Both sides are fully symmetrical.} 7. d4 {Break the symmetry first: open the center while your pieces are ready.} 7... cxd4 8. Nxd4 {The bishop on g2 now has the long diagonal, and the d4 knight eyes the c6 knight.}",
+      "explain": "In symmetrical positions, whoever breaks first usually gets the initiative. Your bishop and knight now pressure c6 and the queenside."
+    },
+    {
+      "name": "Against 1...Nf6 and ...g6",
+      "pgn": "1. c4 Nf6 2. Nc3 {Control d5 and e4.} 2... g6 {A King's Indian-style setup.} 3. g3 {Fianchetto too.} 3... Bg7 4. Bg2 {Your bishop hits the queenside along the long diagonal.} 4... O-O 5. Nf3 {Develop and castle next.} 5... d6 6. O-O {Flexible. Later: d3 and Rb1 with b4, or d4 to transpose into a King's Indian Fianchetto.}",
+      "explain": "Keep it flexible. The long diagonal and the queenside pawn storm (Rb1, b4, b5) are your plans; Black usually goes ...e5 or ...c5."
+    },
+    {
+      "name": "Against 1...c6 (a Caro-Kann setup)",
+      "pgn": "1. c4 c6 {Black prepares ...d5.} 2. Nf3 {Develop and stop ...e5.} 2... d5 3. e3 {Support c4 and keep the center flexible.} 3... Nf6 4. Nc3 {Add pressure on d5.} 4... e6 5. b3 {Double fianchetto idea: the bishop on b2 controls e5.} 5... Nbd7 6. Bb2 {A flexible setup. Next Be2, O-O and d4 or Qc2.}",
+      "explain": "A quiet system where you control e5 and d4 from a distance. Castle, then decide between d4 and a slow buildup with Qc2 and Rd1."
+    }
+  ]
+}

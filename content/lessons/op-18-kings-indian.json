@@ -1,0 +1,34 @@
+{
+  "id": "kings-indian",
+  "order": 118,
+  "title": "King's Indian Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.d4 Nf6 2.c4 g6: give White the center, then attack it with ...e5 and the king with ...f5.",
+  "weakness": [
+    "opening:King's Indian Defense"
+  ],
+  "body": "The King's Indian (KID) is a fighting defense. You let White build a big center, castle behind your **g7 bishop**, and then strike with **...e5**. When White closes the center with d5, the game becomes a race: you attack the king with **...f5, ...f4, ...g5**, and White attacks on the queenside.\n\nYour plan:\n- Setup: **...Nf6, ...g6, ...Bg7, ...d6, ...O-O**, then **...e5**.\n- If White plays **d5**, reroute the knight (**...Ne7**, **...Nd7** or **...Nh5**) and push **...f5**.\n- Never trade your g7 bishop cheaply. It is the soul of the KID.\n\nVariations you'll meet:\n- **Classical (5.Nf3, 6.Be2)**: the main battleground.\n- **Sämisch (5.f3)**: White protects e4 with a pawn.\n- **Fianchetto (g3, Bg2)**: positional and calm.\n- **Four Pawns (5.f4)**: White grabs maximum space.\n\nCommon mistakes at club level:\n- Pushing ...f5 before your knight has left f6. The f-pawn needs the path cleared.\n- Ignoring the queenside: White's c5 push arrives fast, so your kingside attack must be faster.",
+  "lines": [
+    {
+      "name": "Classical: Mar del Plata",
+      "pgn": "1. d4 Nf6 {Develop and control e4. A flexible first move.} 2. c4 g6 {King's Indian: prepare the fianchetto.} 3. Nc3 Bg7 {The King's Indian bishop on the long diagonal.} 4. e4 d6 {Let White have the center for now.} 5. Nf3 O-O {Castle before opening the center.} 6. Be2 e5 {The KID break: strike the center.} 7. O-O Nc6 {Pressure d4.} 8. d5 Ne7 {The center is closed. Your knight heads for the kingside.} 9. Ne1 Nd7 {Clear the way for ...f5.} 10. Nd3 f5 {The Mar del Plata: you attack on the kingside, White on the queenside.}",
+      "explain": "The most famous KID structure. Your plan: ...f4, ...g5, ...g4 and ...Ng6 against the white king. White plays c5 on the queenside. Speed is everything."
+    },
+    {
+      "name": "Sämisch: 7.d5 Nh5 and ...f5",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3 {The Sämisch: f3 protects e4 and prepares Be3, Qd2 and g4.} 5... O-O {Castle first.} 6. Be3 e5 {The thematic break, even though d4 looks well protected.} 7. d5 {White closes the center.} 7... Nh5 {The knight clears the way for ...f5 and eyes f4.} 8. Qd2 f5 {Strike at e4 before White can play g4.} 9. exf5 gxf5 {Recapture toward the center: your pawns on e5 and f5 control key squares.} 10. O-O-O Nd7 {Kings on opposite sides. Your knight heads for f6 or c5, and you open lines on the queenside with ...a6 and ...b5.}",
+      "explain": "In the Sämisch, the f3 pawn blocks White's knight, so ...Nh5 and ...f5 hit the center quickly. If White castles long, ...a6, ...b5 and ...Qe8-a4 make a fast attack."
+    },
+    {
+      "name": "Fianchetto Variation",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. Nf3 Bg7 {Fianchetto.} 4. g3 {White fianchettoes too.} 4... O-O {Castle.} 5. Bg2 d6 {Prepare ...e5.} 6. O-O Nbd7 {Prepare ...e5.} 7. Nc3 e5 {The King's Indian break.} 8. e4 c6 {Support ...d5 and prepare ...Qb6.} 9. h3 Qb6 {The queen hits d4 and b2. A classic setup.}",
+      "explain": "In the Fianchetto KID, the center stays tense. Plans: ...exd4 with ...Re8 pressure on e4, or ...Qb6 and ...a5 queenside play."
+    },
+    {
+      "name": "Four Pawns Attack",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4 {The Four Pawns: maximum space.} 5... O-O {Castle before counterattacking.} 6. Nf3 c5 {Hit the center at once, before White consolidates.} 7. d5 e6 {Open lines against the center.} 8. Be2 exd5 {Open the e-file.} 9. cxd5 Bg4 {Pin the knight that supports e5. You get a Benoni-style game with active pieces.}",
+      "explain": "Against the Four Pawns Attack, counterattack fast with ...c5 and ...e6. Watch for White's e5 break; ...Re8 and ...Bxf3 slow it down."
+    }
+  ]
+}

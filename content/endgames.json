@@ -1,0 +1,76 @@
+[
+  {
+    "id": "kp-sixth-rank",
+    "title": "King and pawn: king in front",
+    "group": "Pawn endings",
+    "fen": "4k3/8/8/4K3/4P3/8/8/8 w - - 0 1",
+    "side": "white",
+    "goal": "promote",
+    "description": "Win by getting your king to the sixth rank in front of the pawn, then promote."
+  },
+  {
+    "id": "kp-opposition",
+    "title": "King and pawn: take the opposition",
+    "group": "Pawn endings",
+    "fen": "8/8/8/4k3/8/8/3KP3/8 w - - 0 1",
+    "side": "white",
+    "goal": "promote",
+    "description": "Only one first move wins. Take the opposition and escort the pawn home."
+  },
+  {
+    "id": "kp-defend",
+    "title": "King and pawn: hold the draw",
+    "group": "Pawn endings",
+    "fen": "8/8/4k3/8/8/4K3/4P3/8 b - - 0 1",
+    "side": "black",
+    "goal": "hold",
+    "moves": 30,
+    "description": "Defend as Black. Keep your king in front of the pawn and take the opposition."
+  },
+  {
+    "id": "lucena",
+    "title": "Lucena position",
+    "group": "Rook endings",
+    "fen": "1K1k4/1P6/8/8/8/8/r7/2R5 w - - 0 1",
+    "side": "white",
+    "goal": "promote",
+    "description": "Push the king away, build a bridge on the fourth rank, and promote."
+  },
+  {
+    "id": "philidor",
+    "title": "Philidor defence",
+    "group": "Rook endings",
+    "fen": "4k3/7R/8/4PK2/8/r7/8/8 b - - 0 1",
+    "side": "black",
+    "goal": "hold",
+    "moves": 40,
+    "description": "Defend as Black: rook on your third rank, then checks from behind once the pawn advances."
+  },
+  {
+    "id": "rook-two-pawns",
+    "title": "Rook and two connected pawns",
+    "group": "Rook endings",
+    "fen": "8/5k2/8/4PP2/6K1/8/r7/7R w - - 0 1",
+    "side": "white",
+    "goal": "promote",
+    "description": "Use your king and rook to shepherd the connected pawns through."
+  },
+  {
+    "id": "kq-mate",
+    "title": "Mate with king and queen",
+    "group": "Basic mates",
+    "fen": "8/8/8/4k3/8/8/8/3QK3 w - - 0 1",
+    "side": "white",
+    "goal": "mate",
+    "description": "Box the king in with your queen, bring your own king, and mate on the edge. Watch out for stalemate."
+  },
+  {
+    "id": "kr-mate",
+    "title": "Mate with king and rook",
+    "group": "Basic mates",
+    "fen": "8/8/8/4k3/8/8/8/R3K3 w - - 0 1",
+    "side": "white",
+    "goal": "mate",
+    "description": "Cut the king off with the rook, use your king to take the opposition, and push it to the edge."
+  }
+]

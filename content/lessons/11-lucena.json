@@ -1,0 +1,82 @@
+{
+  "id": "lucena",
+  "order": 11,
+  "title": "Rook endings: the Lucena position",
+  "category": "Endgames",
+  "summary": "The winning method with rook and pawn: build a bridge.",
+  "weakness": [
+    "phase:endgame"
+  ],
+  "drill": {
+    "themes": [
+      "rookEndgame"
+    ],
+    "count": 10
+  },
+  "body": "**Lucena:** your pawn is on the 7th, your king in front of it, the enemy king cut off by your rook. You win by **building a bridge**:\n\n1. Check the enemy king one more file away.\n2. Bring your rook to the **4th rank** (the bridge).\n3. Walk your king out; when the checks come, block them with the rook on the 4th.\n\nLearn this one by heart - it is the most important winning position in chess.",
+  "examples": [
+    {
+      "fen": "1K1k4/1P6/8/8/8/8/r7/2R5 w - - 0 1",
+      "solution": [
+        "c1d1",
+        "d8e7",
+        "d1d4"
+      ],
+      "prompt": "White to move and win. First push the black king further away.",
+      "explain": "Rd1+ drives the king to the e-file, then Rd4! builds the bridge. Your king will walk out to c7 and block the checks with Rb4/Rc4.",
+      "accept": [
+        [
+          "c1b1",
+          "c1c3",
+          "c1c5",
+          "c1c6",
+          "c1d1",
+          "c1f1",
+          "c1g1",
+          "c1h1"
+        ],
+        [
+          "b8c7",
+          "d1b1",
+          "d1c1",
+          "d1d3",
+          "d1d4",
+          "d1d5",
+          "d1e1",
+          "d1f1",
+          "d1g1",
+          "d1h1"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "1K6/1P6/4k3/8/3R4/8/r7/8 w - - 0 1",
+      "solution": [
+        "b8c7",
+        "a2c2",
+        "c7b6"
+      ],
+      "prompt": "White to move. The bridge is ready - get the king out.",
+      "explain": "Kc7! and walk toward the rook. When checks run out, the rook on the 4th rank blocks and the pawn queens.",
+      "accept": [
+        [
+          "b8c7",
+          "b8c8",
+          "d4b4",
+          "d4d1",
+          "d4d3",
+          "d4d8",
+          "d4g4",
+          "d4h4"
+        ],
+        [
+          "c7b6",
+          "c7b8",
+          "c7d8"
+        ]
+      ],
+      "orientation": "white"
+    }
+  ]
+}

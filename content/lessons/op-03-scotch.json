@@ -1,0 +1,34 @@
+{
+  "id": "scotch-game",
+  "order": 103,
+  "title": "Scotch Game",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.e4 e5 2.Nf3 Nc6 3.d4: open the center at once and get free, active piece play.",
+  "weakness": [
+    "opening:Scotch Game"
+  ],
+  "body": "The Scotch opens the center on move three. After 3...exd4 4.Nxd4 you have a centralized knight and space, and the game is less theoretical than the Ruy Lopez. Kasparov made it popular again.\n\nYour plan:\n- Develop quickly: **Nc3**, **Bd3** or **Bc4**, **O-O**.\n- Use the half-open d-file and the e4 pawn to gain space with **e5** when possible.\n- Watch the d4 knight: it is your best piece, but it is a target for ...Bc5 and ...Qf6.\n\nWhat Black usually does:\n- **4...Nf6**: attacks e4. Answer with **5.Nxc6** and **6.e5**.\n- **4...Bc5**: hits the knight. **5.Be3** keeps it in the center.\n- **4...Nxd4**: only helps you, since your queen recaptures in the center.\n\nCommon mistakes at club level:\n- After 4...Bc5 5.Be3 Qf6, forgetting that d4 is attacked three times. 6.c3 holds it.\n- Playing Nxc6 too early, without the follow-up e5.",
+  "lines": [
+    {
+      "name": "4...Nf6: the Mieses Variation",
+      "pgn": "1. e4 {Claim the center.} 1... e5 2. Nf3 {Develop and attack e5.} 2... Nc6 3. d4 {The Scotch: open the center straight away.} 3... exd4 {Taking is best; 3...d6 gives you a free hand in the center.} 4. Nxd4 {Recapture with a centralized knight.} 4... Nf6 {Develops and attacks e4.} 5. Nxc6 {Exchange first, so that after ...bxc6 you can play e5 with tempo.} 5... bxc6 6. e5 {Kicks the f6 knight. You gain space.} 6... Qe7 {Pins the e5 pawn against your king.} 7. Qe2 {Unpins and protects e5.} 7... Nd5 8. c4 {Chase the knight again. You have space and a strong pawn on e5.}",
+      "explain": "After 8.c4 the knight goes back to b6 or Black plays ...Ba6 to pin c4. You keep a space advantage; develop with g3, Bg2 and O-O or b3 and Bb2."
+    },
+    {
+      "name": "4...Bc5: the Classical",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 {The bishop attacks your d4 knight.} 5. Be3 {Defends the knight and offers a bishop trade.} Qf6 {Now d4 is attacked three times: knight, bishop and queen.} 6. c3 {Third defender. The d4 knight is safe.} Nge7 {Black develops so the f-pawn and queen keep their pressure.} 7. Bc4 {Develop with an eye on f7. Next comes O-O.}",
+      "explain": "Typical continuation: 7...O-O 8.O-O. Your center is stable and Black's pieces are slightly awkward. Watch out for ...Nxd4 tactics against d4 at every move."
+    },
+    {
+      "name": "4...Nxd4: an easy gift",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nxd4 {This trade only helps you: your queen recaptures in the center.} 5. Qxd4 {A dominant queen. Black can't easily chase it away.} d6 6. Nc3 {Develop. Your queen is safe because no black minor piece can hit it.} Nf6 7. Bc4 {Point at f7.} Be7 8. O-O {Castle. You have more space and quicker development.}",
+      "explain": "Next you can play f4 and e5, or Bg5 and Rad1. Trading knights early let you develop with tempo."
+    },
+    {
+      "name": "Scotch Gambit: 4.Bc4",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4 {The Scotch Gambit: develop first and take back d4 later.} Nf6 5. e5 {Kick the knight.} d5 {Black counterattacks your bishop. This is the best reply.} 6. Bb5 {Pin the c6 knight.} Ne4 {The knight jumps forward.} 7. Nxd4 {Take back your pawn. Material is equal and you have space with the e5 pawn.}",
+      "explain": "The Scotch Gambit is fun against unprepared opponents and can transpose into the Two Knights. In this line material is level and your e5 pawn gives you the space."
+    }
+  ]
+}

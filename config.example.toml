@@ -1,0 +1,19 @@
+# Chezz configuration. The app copies this file to config.toml on first run;
+# edit config.toml (not this file) and restart the app.
+
+# Your username on chess.com / lichess. Use a list if they differ:
+#   username = ["my_chesscom_name", "my_lichess_name"]
+username = ""          # e.g. "your_username" -- games are reviewed from this player's side
+
+[engine]
+# Full path to the Stockfish binary, e.g. "C:/tools/stockfish/stockfish.exe" or "/usr/games/stockfish".
+# Leave empty to auto-detect: `stockfish` on PATH, ./engine/stockfish*, /usr/games (Debian/Ubuntu), or a winget install on Windows.
+path = ""
+threads = 2
+hash = 256          # MB
+depth = 16
+movetime_ms = 0     # if > 0, use a fixed time per move instead of depth
+
+[app]
+port = 8765
+data_dir = "data"       # relative to this file

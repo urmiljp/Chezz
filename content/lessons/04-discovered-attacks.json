@@ -1,0 +1,60 @@
+{
+  "id": "discovered-attacks",
+  "order": 4,
+  "title": "Discovered attacks",
+  "category": "Tactics",
+  "summary": "Move one piece out of the way to unleash another - two threats in one move.",
+  "weakness": [
+    "tag:discovered_attack"
+  ],
+  "drill": {
+    "themes": [
+      "discoveredAttack"
+    ],
+    "count": 10
+  },
+  "body": "A **discovered attack** happens when one piece moves and uncovers an attack by a piece behind it. The moving piece is free to make its own threat, so you get **two threats with one move**.\n\nIt is strongest as a **discovered check**: the opponent must deal with the check, and the moving piece takes whatever it attacked.\n\nLook for your rooks, bishops and queen standing behind your own pieces, pointing at the enemy king or queen.",
+  "examples": [
+    {
+      "fen": "4q1k1/6pp/8/8/4B3/8/5PPP/4R1K1 w - - 0 1",
+      "solution": [
+        "e4h7",
+        "g8f8",
+        "e1e8"
+      ],
+      "prompt": "White to move. The bishop blocks your rook's attack on the queen.",
+      "explain": "Any bishop move with check uncovers the rook on e1. Bxh7+ (or Bd5+) forces a king move and Rxe8+ wins the queen.",
+      "accept": [
+        [
+          "e4d5",
+          "e4h7"
+        ],
+        [
+          "e1e8"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "3k4/8/4q3/8/8/3N4/5PPP/3R2K1 w - - 0 1",
+      "solution": [
+        "d3c5",
+        "d8e7",
+        "c5e6"
+      ],
+      "prompt": "White to move. Your rook is aiming at the king through your own knight.",
+      "explain": "Nc5+ is a discovered check from the rook, and the knight attacks the queen. Black must answer the check, then Nxe6.",
+      "accept": [
+        [
+          "d3c5",
+          "d3f4"
+        ],
+        [
+          "c5e6",
+          "d1d7"
+        ]
+      ],
+      "orientation": "white"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "grunfeld",
+  "order": 121,
+  "title": "Grünfeld Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.d4 Nf6 2.c4 g6 3.Nc3 d5: let White build a center, then destroy it with pieces.",
+  "weakness": [
+    "opening:Grünfeld Defense",
+    "opening:Neo-Grünfeld Defense"
+  ],
+  "body": "The Grünfeld is a dynamic defense loved by Fischer and Kasparov. You trade your d-pawn for White's c-pawn, and White gets a big center with e4 and d4. Then you **attack that center** with the g7 bishop, **...c5**, **...Nc6** and **...Bg4**.\n\nYour plan:\n- The **g7 bishop** is your hero. It hits d4 and the long diagonal.\n- Pressure d4 with **...c5**, **...Nc6**, **...Bg4** and **...Qa5** or **...Qb6**.\n- If White's center becomes weak, trade pieces and aim for an endgame.\n\nVariations you'll meet:\n- **Exchange (4.cxd5 Nxd5 5.e4)**: the main line. White gets a big center.\n- **Russian (4.Nf3, 5.Qb3)**: White attacks d5 and c4.\n- **4.Bf4**: White targets c7.\n- White avoids the Grünfeld with **3.g3**: you can play the same ideas.",
+  "lines": [
+    {
+      "name": "Exchange: modern 7.Nf3",
+      "pgn": "1. d4 Nf6 {Develop and control e4.} 2. c4 g6 {Prepare ...Bg7.} 3. Nc3 d5 {The Grünfeld: challenge the center at once.} 4. cxd5 Nxd5 {Recapture with the knight.} 5. e4 Nxc3 {Trade the knight.} 6. bxc3 Bg7 {Your bishop already hits c3 and d4.} 7. Nf3 c5 {Second attacker on d4.} 8. Be3 Qa5 {Pin c3, attack a2, and pressure the center.} 9. Qd2 Nc6 {Third attacker on d4.} 10. Rc1 cxd4 {Trade on d4.} 11. cxd4 Qxd2+ {Trade queens: the pressure on d4 stays.} 12. Kxd2 O-O {A queenless middlegame. White's center is big, but your pieces hit it from every side.}",
+      "explain": "In this endgame-like position, pressure d4 with ...Rd8 and ...Bg4. White's king in the center can also become a target."
+    },
+    {
+      "name": "Exchange: classical 7.Bc4",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 Bg7 7. Bc4 {The classical approach: Bc4 and Ne2.} 7... c5 {Hit d4.} 8. Ne2 Nc6 {Pressure on d4.} 9. Be3 O-O {Castle.} 10. O-O Bg4 {Hit the e2 knight, the defender of d4.} 11. f3 Na5 {Attack the c4 bishop and gain the c4 square.}",
+      "explain": "A famous Grünfeld position. After ...Na5, play ...Nxc4 or ...Bd7 and ...b5, and keep pressing d4."
+    },
+    {
+      "name": "Russian System: 5.Qb3",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3 Bg7 {Develop the bishop.} 5. Qb3 {The Russian System: hit d5.} 5... dxc4 {Give up the center, gain tempo on the queen.} 6. Qxc4 O-O {Castle.} 7. e4 a6 {The Hungarian Variation: prepare ...b5 with tempo on the queen.}",
+      "explain": "After ...b5 and ...Bb7, your pieces hit e4. White has a big center, but it is a target."
+    },
+    {
+      "name": "Against 4.Bf4",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Bf4 {White hits c7.} 4... Bg7 {Develop. c7 is attacked, but ...c5 is coming.} 5. e3 c5 {Counterattack in the center, offering a pawn.} 6. dxc5 Qa5 {Pin the knight and attack c5 and c3.} 7. Rc1 dxc4 {Take the pawn.} 8. Bxc4 O-O {You will win back c5 with active pieces.}",
+      "explain": "After ...Qxc5 you have quick development. Your pieces are active and White's center pawns are gone."
+    },
+    {
+      "name": "White avoids it: 3.g3",
+      "pgn": "1. d4 Nf6 2. c4 g6 3. g3 {White plays a fianchetto setup.} 3... d5 {Same idea: hit the center.} 4. cxd5 Nxd5 {Recapture.} 5. Bg2 Bg7 {Fianchetto.} 6. Nf3 O-O {Castle.} 7. O-O c5 {Pressure d4, as in the Grünfeld.}",
+      "explain": "Your setup stays the same: ...Bg7, ...O-O, ...c5 and ...Nc6 against d4."
+    }
+  ]
+}

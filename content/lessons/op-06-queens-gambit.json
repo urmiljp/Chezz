@@ -1,0 +1,47 @@
+{
+  "id": "queens-gambit",
+  "order": 106,
+  "title": "Queen's Gambit",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.d4 d5 2.c4: offer the c-pawn to pull Black's d-pawn away from the center.",
+  "weakness": [
+    "opening:Queen's Gambit Declined",
+    "opening:Queen's Gambit Accepted",
+    "opening:Slav Defense",
+    "opening:Semi-Slav Defense"
+  ],
+  "body": "The Queen's Gambit isn't a real gambit. If Black takes on c4, you win the pawn back easily. The point is to swap your c-pawn for Black's central d-pawn and get more of the center.\n\nYour plan:\n- Develop **Nc3**, **Nf3**, **Bg5** or **Bf4**, **e3**, **Bd3**, then castle.\n- Use the open **c-file**: Rc1 puts pressure on c7.\n- In the Exchange Variation, push your queenside pawns with **b4-b5** (the minority attack).\n\nWhat Black usually does:\n- **2...e6** (Queen's Gambit Declined): solid. Black's light bishop is blocked in.\n- **2...dxc4** (Accepted): Black gives up the center for free development.\n- **2...c6** (Slav): holds d5 without blocking the c8 bishop.\n\nTraps to know:\n- After 2...dxc4 3.e3 b5? 4.a4 c6 5.axb5 cxb5?? 6.Qf3 wins the a8 rook.\n- Albin Countergambit (2...e5): never play 4.e3?, which loses to the Lasker trap. Play 4.Nf3 and 5.g3.",
+  "lines": [
+    {
+      "name": "Declined: Orthodox Defense",
+      "pgn": "1. d4 {Claim the center with the queen pawn.} 1... d5 2. c4 {The Queen's Gambit: challenge d5 from the side.} 2... e6 {Queen's Gambit Declined. Solid, but the c8 bishop is blocked.} 3. Nc3 {Add pressure on d5.} 3... Nf6 4. Bg5 {Pin the knight that defends d5.} 4... Be7 {Unpins.} 5. e3 {Open the f1 bishop.} 5... O-O 6. Nf3 {Develop the king's knight; it covers e5 and d4.} 6... Nbd7 7. Rc1 {The rook goes to the c-file, where the action will be.} 7... c6 8. Bd3 {Develop. Black often takes on c4 now to gain a tempo.} 8... dxc4 9. Bxc4 {Recapture. You have a free, active position and will castle next.}",
+      "explain": "This is the Orthodox Defense. Black often frees the game with ...Nd5 to trade pieces. Keep your pieces active and be ready for ...e5 or ...c5."
+    },
+    {
+      "name": "Exchange Variation: the minority attack",
+      "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5 {The Exchange: fix the pawn structure.} 4... exd5 {Now Black's c8 bishop is free, but the structure is fixed.} 5. Bg5 {Pin the knight.} 5... c6 6. Qc2 {Stop ...Bf5, which would trade Black's good bishop.} 6... Be7 7. e3 {Open the f1 bishop and support d4.} 7... Nbd7 8. Bd3 {Develop.} 8... O-O 9. Nge2 {The knight goes to e2 to keep f3 free for f3 and e4 later, or to support the minority attack with b4-b5.}",
+      "explain": "This Carlsbad structure is one of the most important in chess. Your main plan is the minority attack: Rb1, b4 and b5 to give Black a weak c-pawn."
+    },
+    {
+      "name": "Accepted: 2...dxc4",
+      "pgn": "1. d4 d5 2. c4 dxc4 {Black takes the pawn, but can't hold it.} 3. e3 {Open the bishop's path to c4.} 3... Nf6 4. Bxc4 {Pawn back. You have the center pawn on d4.} 4... e6 5. Nf3 {Develop and get ready to castle.} 5... c5 {Black attacks the center at once.} 6. O-O {Castle before the center opens.} 6... a6 {Black prepares ...b5 with tempo on your bishop.} 7. Bb3 {Step back early, before ...b5 gains time.}",
+      "explain": "You have a slightly freer game. Plans: Qe2, Rd1 and e4, or Nc3 and a central push. If Black plays ...cxd4, an isolated d-pawn gives you active play."
+    },
+    {
+      "name": "Accepted trap: 3...b5?",
+      "pgn": "1. d4 d5 2. c4 dxc4 3. e3 b5 {Black tries to keep the extra pawn. This is a mistake.} 4. a4 {Attack the b5 pawn.} 4... c6 {Black defends it.} 5. axb5 {Take the pawn; Black's queenside opens up.} 5... cxb5 {A natural recapture, but it opens the long diagonal.} 6. Qf3 {The queen attacks the a8 rook down the long diagonal, and the knight can't block. You win material.}",
+      "explain": "The idea to remember: when Black's pawns leave c6, the a8 rook and the long diagonal become weak. Qf3 wins at least the exchange."
+    },
+    {
+      "name": "Slav Defense: main line",
+      "pgn": "1. d4 d5 2. c4 c6 {The Slav: guard d5 with the c-pawn and keep the c8 bishop free.} 3. Nf3 {Develop and keep your options open.} 3... Nf6 4. Nc3 {Development first.} 4... dxc4 {Black takes now, planning to keep it with ...b5.} 5. a4 {Stop ...b5. You will win c4 back.} 5... Bf5 {Black develops the bishop outside the pawn chain before ...e6.} 6. e3 {Prepare to win back c4 with the bishop.} 6... e6 7. Bxc4 {Pawn back.} 7... Bb4 8. O-O {Castle. Next you aim for Qe2 and e4 to grab the center.}",
+      "explain": "The main-line Slav. You want e4, but it needs preparing with Qe2, Nh4 or Nd2. Black has a solid position with active bishops."
+    },
+    {
+      "name": "Albin Countergambit: 2...e5",
+      "pgn": "1. d4 d5 2. c4 e5 {The Albin Countergambit: a pawn sacrifice for quick play.} 3. dxe5 {Take it.} d4 {The d4 pawn cramps you. Never 4.e3? Bb4+ 5.Bd2 dxe3 with the famous Lasker trap.} 4. Nf3 {Develop and hold e5.} Nc6 5. g3 {Fianchetto. Your bishop on g2 will pressure the long diagonal, and you keep the extra pawn.}",
+      "explain": "You keep the e5 pawn and develop with Bg2, O-O and Nbd2. Black's d4 pawn is strong but can become a target later."
+    }
+  ]
+}

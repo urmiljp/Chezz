@@ -1,0 +1,34 @@
+{
+  "id": "vienna-game",
+  "order": 104,
+  "title": "Vienna Game",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.e4 e5 2.Nc3: protect e4, keep the f-pawn free, and strike with f4.",
+  "weakness": [
+    "opening:Vienna Game"
+  ],
+  "body": "In the Vienna you develop the queen knight first. It guards e4 and keeps the f-pawn free, so **f4** becomes a strong attacking idea, like a King's Gambit with an extra developed piece.\n\nYour plan:\n- Against **2...Nf6**: play the Vienna Gambit **3.f4**, or the quiet **3.Bc4**.\n- Against **2...Nc6**: **3.Bc4** and **f4** later, after d3 and Nf3.\n- Your attack runs on the f-file and the a2-g8 diagonal.\n\nWhat Black usually does:\n- **2...Nf6**, threatening ...d5. The main line.\n- **2...Nc6** for a solid, symmetrical game.\n- **2...Bc5**: be careful with an early f4 because of ...Qh4+ ideas.\n\nCommon mistakes at club level:\n- Playing f4 when Black's bishop sits on c5 and your king can't castle yet.\n- In the Frankenstein-Dracula line, retreating instead of playing the forcing moves.",
+  "lines": [
+    {
+      "name": "Vienna Gambit: 3...d5",
+      "pgn": "1. e4 {Claim the center and open lines for the queen and bishop.} 1... e5 2. Nc3 {Guard e4 and keep the f-pawn free.} 2... Nf6 {Develop and threaten ...d5.} 3. f4 {The Vienna Gambit: attack e5 at once.} 3... d5 {The best reply: strike the center.} 4. fxe5 {Take on e5. Your pawn kicks the f6 knight.} 4... Nxe4 5. Nf3 {Develop and protect e5.} 5... Be7 6. d4 {Build the center. The e4 knight looks strong, but you can trade it off.} 6... O-O 7. Bd3 {Hit the e4 knight. You have more space and an open f-file for your rook.}",
+      "explain": "After 7.Bd3 you plan O-O with the rook on the half-open f-file. Your e5 pawn cramps Black's kingside."
+    },
+    {
+      "name": "Vienna Gambit: 3...exf4",
+      "pgn": "1. e4 e5 2. Nc3 Nf6 3. f4 exf4 {Taking the pawn is a mistake: you gain time.} 4. e5 {Kick the knight back home.} Ng8 {The only good square. Black's development is now behind.} 5. Nf3 {Develop, and get ready to take back on f4.} d6 6. d4 {A big center. You will win back f4 with Bxf4 and stay ahead in development.}",
+      "explain": "You recover the pawn with Bxf4 and have a big lead in development. The f-file is open for your rook after castling."
+    },
+    {
+      "name": "Frankenstein-Dracula: 3.Bc4 Nxe4",
+      "pgn": "1. e4 e5 2. Nc3 Nf6 3. Bc4 {The quiet way: point the bishop at f7.} Nxe4 {Black grabs the pawn with a fork trick in mind.} 4. Qh5 {Threatens mate on f7.} Nd6 {The only defense: block the bishop and attack your queen.} 5. Bb3 {Keep the bishop on the f7 diagonal.} Nc6 6. Nb5 {Attack the d6 knight and eye c7.} g6 {Chase the queen.} 7. Qf3 {Threatens mate on f7 again.} f5 8. Qd5 {Threatens mate on f7 a third time.} Qe7 9. Nxc7+ {Fork: king and rook.} Kd8 10. Nxa8 {You win the rook. Black gets a dangerous attack for it; this is the wild Frankenstein-Dracula Variation.}",
+      "explain": "You are a full rook up for a minor piece, but your knight on a8 is trapped and Black has an attack. Play d3 and Nf3 quickly and defend carefully."
+    },
+    {
+      "name": "2...Nc6 3.Bc4: slow buildup with f4",
+      "pgn": "1. e4 e5 2. Nc3 Nc6 {The symmetrical, solid reply.} 3. Bc4 {Aim at f7.} Nf6 4. d3 {Protect e4 and open the c1 bishop's diagonal.} Bc5 {Black develops actively.} 5. f4 {The Vienna idea: the f-pawn attacks e5 and opens the f-file.} d6 6. Nf3 {Develop and hit e5 again. Next is O-O with an attack on the f-file.}",
+      "explain": "This is a King's Gambit Declined with colors in your favor: your d3 pawn guards e4 and Black's ...Ng4 ideas are blocked. Castle and play f5 or fxe5 when it helps."
+    }
+  ]
+}

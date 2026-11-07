@@ -1,0 +1,40 @@
+{
+  "id": "london-system",
+  "order": 107,
+  "title": "London System",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.d4 and 2.Bf4: one setup against everything, d4-e3-c3 with the bishop outside the chain.",
+  "weakness": [
+    "opening:Queen's Pawn Game",
+    "opening:Indian Defense"
+  ],
+  "body": "The London is a system, not a line. You play the same setup against almost anything: **d4, Bf4, e3, Nf3, c3, Nbd2, Bd3, O-O**. Get the dark-squared bishop out *before* playing e3, so it isn't locked in.\n\nYour plan:\n- Build the pyramid **c3-d4-e3** and develop behind it.\n- Keep **Bg3** ready if Black plays ...Nh5 or ...Bd6 to trade your bishop.\n- Later: **Ne5** and **f4** for a kingside attack, or **e4** to open the center.\n\nWhat Black usually does:\n- **...d5, ...e6, ...c5**: the main fight. Hold d4 with c3.\n- **...Qb6** hits b2. Answer with **Qb3** or **Qc2**, or Nbd2 if b2 is covered.\n- **...g6 and ...Bg7** (King's Indian setup): add **h3** so the bishop has a retreat on h2.\n\nCommon mistakes at club level:\n- Playing e3 before Bf4. The bishop gets locked in.\n- Ignoring ...Qb6 and losing the b2 pawn.\n- Playing the moves on autopilot even when Black's setup allows something better.",
+  "lines": [
+    {
+      "name": "Main setup vs ...d5 and ...c5",
+      "pgn": "1. d4 {Center pawn.} 1... d5 2. Bf4 {The London bishop: out before e3 locks it in.} 2... Nf6 3. e3 {Now the f1 bishop is free.} 3... e6 4. Nf3 {Develop and control e5.} 4... c5 {Black attacks your center.} 5. c3 {The pyramid c3-d4-e3: d4 is rock solid.} 5... Nc6 6. Nbd2 {The knight supports e4 and doesn't block the c-pawn.} 6... Bd6 {Black offers to trade your good bishop.} 7. Bg3 {Keep it. If ...Bxg3, hxg3 opens the h-file for your rook.} 7... O-O 8. Bd3 {Develop toward the black king. Castle next.}",
+      "explain": "The model London. Next: O-O, Qe2 and either Ne5 with f4, or e4 to open the center."
+    },
+    {
+      "name": "Against a King's Indian setup",
+      "pgn": "1. d4 Nf6 2. Bf4 {The accelerated London: bishop out at once.} 2... g6 {Black goes for the King's Indian setup.} 3. e3 {Support d4 and free the f1 bishop.} 3... Bg7 4. Nf3 {Develop and control e5.} 4... O-O 5. Be2 {Against ...g6 the bishop is safer on e2: ...Nh5 can't trade it easily, and ...e5 doesn't hit it.} 5... d6 6. h3 {Make an escape square on h2 for the bishop before ...Nh5 or ...e5.} 6... c5 7. c3 {The usual pyramid. Castle next.}",
+      "explain": "Against the King's Indian setup, h3 and Bh2 keep the bishop safe. Castle, then fight for e4 with Nbd2 or play c3-d4 and wait."
+    },
+    {
+      "name": "The ...Qb6 attack on b2",
+      "pgn": "1. d4 d5 2. Bf4 c5 {An early attack on d4.} 3. e3 {Support d4 and free the f1 bishop.} 3... Nc6 4. c3 {Keep the pyramid.} 4... Qb6 {The queen hits b2, which your f4 bishop has left unprotected.} 5. Qb3 {Offer the queen trade. If ...Qxb3, axb3 gives you an open a-file.}",
+      "explain": "Against ...Qb6, the queen trade with Qb3 is the simplest. Qc2 or Qb3 is better than defending passively."
+    },
+    {
+      "name": "Black copies with ...Bf5",
+      "pgn": "1. d4 d5 2. Bf4 Bf5 {Black copies your setup.} 3. e3 {Support d4 and free the f1 bishop.} 3... e6 4. c4 {The copycat's weakness: b7. c4 opens the way for Qb3.} 4... Nf6 5. Nc3 {Develop and add pressure on d5.} 5... Bb4 6. Qb3 {The queen hits b7 and the b4 bishop at the same time.}",
+      "explain": "When Black's light bishop leaves c8, b7 can become weak. c4 and Qb3 are the standard way to test the copycat setup; Black has to defend accurately."
+    },
+    {
+      "name": "Against an early ...Bd6",
+      "pgn": "1. d4 d5 2. Bf4 Nf6 3. e3 e6 4. Nf3 Bd6 {Black offers to trade bishops right away.} 5. Bg3 {Keep your bishop and let Black take on g3 if they want.} 5... O-O 6. Bd3 {Develop toward the kingside, where Black has castled.} 6... c5 7. c3 {The pyramid.} 7... Nc6 8. Nbd2 {Your standard setup is ready. Castle and look for Ne5 or e4.}",
+      "explain": "If Black ever plays ...Bxg3, recapture with hxg3: the open h-file can help your attack once Black castles kingside."
+    }
+  ]
+}

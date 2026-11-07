@@ -1,0 +1,69 @@
+{
+  "id": "hanging-pieces",
+  "order": 1,
+  "title": "Hanging pieces",
+  "category": "Tactics",
+  "summary": "Before every move, check what is undefended - yours and theirs.",
+  "weakness": [
+    "tag:hanging_piece"
+  ],
+  "drill": {
+    "themes": [
+      "hangingPiece"
+    ],
+    "count": 10
+  },
+  "body": "Most games under 1500 are decided by **pieces left en prise**: attacked and not defended, or defended fewer times than attacked.\n\nBuild a two-second habit before every move:\n- **Theirs:** which of my opponent's pieces are loose? Can I take one for free?\n- **Mine:** after my move, which of my pieces will be attacked and not defended?\n- **Count:** if a piece is attacked twice and defended once, it falls.\n\nTaking free material is not greedy - it is the single biggest source of rating points.",
+  "examples": [
+    {
+      "fen": "4k3/8/8/3n4/8/8/8/3QK3 w - - 0 1",
+      "solution": [
+        "d1d5"
+      ],
+      "prompt": "White to move. Something is free.",
+      "explain": "The knight on d5 has no defender. Qxd5 simply wins a piece.",
+      "accept": [
+        [
+          "d1a4",
+          "d1b3",
+          "d1d2",
+          "d1d3",
+          "d1d4",
+          "d1d5",
+          "d1f3",
+          "d1h5",
+          "e1f2"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "rnbqkb1r/pppp1ppp/8/4p3/4n3/3P4/PPP2PPP/RNBQKBNR w KQkq - 0 1",
+      "solution": [
+        "d3e4"
+      ],
+      "prompt": "White to move. Black's knight jumped forward. Is it safe?",
+      "explain": "No black piece defends e4, so dxe4 wins the knight for nothing.",
+      "accept": [
+        [
+          "d3e4"
+        ]
+      ],
+      "orientation": "white"
+    },
+    {
+      "fen": "6k1/5ppp/8/8/8/1q6/5PPP/1Q4K1 w - - 0 1",
+      "solution": [
+        "b1b3"
+      ],
+      "prompt": "White to move. Both queens are attacked - who moves first wins.",
+      "explain": "The b-file is open and the black queen is undefended: Qxb3 wins it. Always look at what your opponent's last move left hanging.",
+      "accept": [
+        [
+          "b1b3"
+        ]
+      ],
+      "orientation": "white"
+    }
+  ]
+}

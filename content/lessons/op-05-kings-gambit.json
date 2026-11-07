@@ -1,0 +1,40 @@
+{
+  "id": "kings-gambit",
+  "order": 105,
+  "title": "King's Gambit",
+  "category": "Openings for White",
+  "side": "white",
+  "summary": "1.e4 e5 2.f4: give a pawn to open the f-file and take the center with d4.",
+  "weakness": [
+    "opening:King's Gambit Accepted",
+    "opening:King's Gambit Declined"
+  ],
+  "body": "The most romantic opening in chess. White offers the f-pawn to pull Black's e-pawn away from the center, then plays **d4** and attacks down the open **f-file**.\n\nYour plan:\n- After **2...exf4**, play **3.Nf3** first. It stops ...Qh4+ and attacks the f4 pawn later.\n- Build the center with **d4**, castle, and take back on f4 when you can.\n- Your king is a little airy. Castle early, and remember the e1-h4 diagonal.\n\nWhat Black usually does:\n- **3...g5**: holds the f4 pawn. Hit the chain with **h4**.\n- **3...d5**: gives the pawn back for easy development.\n- **2...Bc5**: declines. Never answer with 3.fxe5?? because of 3...Qh4+ 4.g3 Qxe4+, which forks king and rook.\n\nCommon mistakes at club level:\n- 3.Bc4 without Nf3 allows ...Qh4+ and your king must walk.\n- Forgetting that Black's ...Qh4+ comes with check whenever the f-pawn is gone and g3 is weak.",
+  "lines": [
+    {
+      "name": "Kieseritzky: 3...g5 4.h4",
+      "pgn": "1. e4 {Claim the center.} 1... e5 2. f4 {The King's Gambit: offer the f-pawn.} 2... exf4 {Black accepts.} 3. Nf3 {The most important move: it stops ...Qh4+.} 3... g5 {Black holds on to the extra pawn.} 4. h4 {Undermine the g5-f4 pawn chain.} 4... g4 {The pawn attacks your knight.} 5. Ne5 {The Kieseritzky: the knight jumps to a strong center square.} 5... Nf6 6. Bc4 {Attack f7 together with the knight.} 6... d5 {Blocks the bishop with a pawn sacrifice.} 7. exd5 {Take the pawn; your bishop now looks at f7 through d5.} 7... Bd6 8. d4 {Support e5 and open the c1 bishop to win back f4.}",
+      "explain": "Engines rate this as slightly better for Black, but it is easy to go wrong as Black. You plan O-O and Bxf4 to win back the pawn with active pieces."
+    },
+    {
+      "name": "Modern Defense: 3...d5",
+      "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 d5 {The Modern Defense: give the pawn back to develop quickly.} 4. exd5 {Take it.} Nf6 {Black will recapture on d5 with the knight.} 5. Bc4 {Defend d5 and develop toward f7.} Nxd5 6. O-O {Castle with the f-file already half-open.} Be7 7. d4 {Center, and the c1 bishop now sees f4.} O-O 8. Bxd5 {Remove the strong knight.} Qxd5 9. Bxf4 {You get the pawn back with a lead in development and pressure on the f-file.}",
+      "explain": "Material is level. Your rook on f1 and bishop on f4 are active, and Black has no weaknesses yet. Play Nc3 with tempo on the queen next."
+    },
+    {
+      "name": "Fischer Defense: 3...d6",
+      "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 d6 {Bobby Fischer's defense: stop Ne5 before playing ...g5.} 4. d4 {Take the center.} g5 5. h4 {Hit the g5 pawn.} g4 6. Ng1 {The point: the knight goes back, and you win the f4 pawn with Bxf4.} Nf6 7. Bxf4 {Pawn back. Black's knight takes e4, but you hit back fast.} Nxe4 8. Bd3 {Attack the knight and prepare to develop quickly. Black's kingside pawns are loose.}",
+      "explain": "Retreating to g1 looks strange but is the main line: your kingside knight returns via e2, and Black's advanced pawns become targets."
+    },
+    {
+      "name": "Declined: 2...Bc5",
+      "pgn": "1. e4 e5 2. f4 Bc5 {The Classical Declined: the bishop stops you from castling. Never 3.fxe5?? Qh4+ 4.g3 Qxe4+.} 3. Nf3 {Develop and guard h4.} 3... d6 4. c3 {Prepare d4 to kick the bishop.} 4... Nf6 5. d4 {Big center with tempo.} 5... exd4 6. cxd4 {Recapture and keep a big pawn center.} 6... Bb4+ 7. Bd2 {Block and offer a trade.} 7... Bxd2+ 8. Nbxd2 {You have the full center, e4 and d4, backed by the f-pawn.}",
+      "explain": "Your big center is the reward. Castle, then push e5 or d5 at the right moment. Watch the e4 pawn: it needs defenders after ...O-O and ...Re8."
+    },
+    {
+      "name": "Counter-gambit: 2...d5",
+      "pgn": "1. e4 e5 2. f4 d5 {Black counterattacks instead of taking.} 3. exd5 {Take it.} exf4 {Black takes the f-pawn now.} 4. Nf3 {Stop ...Qh4+ and protect d5 indirectly.} Nf6 5. c4 {Keep the extra d5 pawn with support.} c6 6. d4 {Big center. You will win back f4 with Bxf4 later.}",
+      "explain": "You keep a strong d5 pawn and plan Bxf4. The black queen on the d-file and the e-file checks are the things to watch."
+    }
+  ]
+}

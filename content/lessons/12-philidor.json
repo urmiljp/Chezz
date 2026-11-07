@@ -1,0 +1,73 @@
+{
+  "id": "philidor",
+  "order": 12,
+  "title": "Rook endings: the Philidor defence",
+  "category": "Endgames",
+  "summary": "The drawing method a pawn down: third rank, then check from behind.",
+  "weakness": [
+    "phase:endgame"
+  ],
+  "drill": {
+    "themes": [
+      "rookEndgame"
+    ],
+    "count": 10
+  },
+  "body": "Defending rook and pawn against rook with your king in front of the pawn:\n\n1. Keep your rook on your **third rank** (the 6th for Black). The enemy king can't advance in front of its pawn.\n2. When the pawn steps onto that rank, the king has lost its shelter: drop your rook to the **back of the board** and **check from behind**.\n\nPassive defence (rook on the back rank) usually loses; active defence draws.",
+  "examples": [
+    {
+      "fen": "4k3/7R/8/4PK2/8/r7/8/8 b - - 0 1",
+      "solution": [
+        "a3a6"
+      ],
+      "prompt": "Black to move and draw. Where does your rook belong?",
+      "explain": "Ra6! - the rook on the third rank keeps the white king from reaching the 6th rank in front of its pawn.",
+      "accept": [
+        [
+          "a3a1",
+          "a3a2",
+          "a3a4",
+          "a3a6",
+          "a3b3",
+          "a3c3",
+          "a3e3",
+          "a3f3",
+          "a3g3",
+          "e8f8"
+        ]
+      ],
+      "orientation": "black"
+    },
+    {
+      "fen": "4k3/7R/r3P3/5K2/8/8/8/8 b - - 0 1",
+      "solution": [
+        "a6a1"
+      ],
+      "prompt": "Black to move. The pawn advanced to e6 - switch plans.",
+      "explain": "Now the white king has no cover from checks: Ra1! and check from behind forever. Staying on the 6th rank loses.",
+      "accept": [
+        [
+          "a6a1",
+          "a6a2",
+          "a6a3",
+          "a6a4"
+        ]
+      ],
+      "orientation": "black"
+    },
+    {
+      "fen": "4k3/R7/4PK2/8/8/8/8/1r6 b - - 0 1",
+      "solution": [
+        "b1f1"
+      ],
+      "prompt": "Black to move and draw.",
+      "explain": "Rf1+! The checks from behind start now; the white king can't escape them without leaving its pawn.",
+      "accept": [
+        [
+          "b1f1"
+        ]
+      ],
+      "orientation": "black"
+    }
+  ]
+}

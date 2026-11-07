@@ -1,0 +1,34 @@
+{
+  "id": "alekhine-defense",
+  "order": 116,
+  "title": "Alekhine's Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.e4 Nf6: provoke White's pawns forward, then attack them.",
+  "weakness": [
+    "opening:Alekhine Defense"
+  ],
+  "body": "Alekhine's idea is provocative: attack e4 with the knight and invite White to chase it with pawns. White gets a big center, but over-extended pawns can become **targets**.\n\nYour plan:\n- After **2.e5 Nd5**, challenge the e5 pawn with **...d6**.\n- Pressure the center with **...Bg4**, **...Nc6**, **...e6** and **...Nb6**.\n- Know when to stop moving your knight: develop the rest of your pieces.\n\nVariations you'll meet:\n- **Modern (4.Nf3)**: the most common and solid.\n- **Four Pawns Attack (4.c4, 5.f4)**: White grabs everything. Counterattack at once.\n- **Exchange (5.exd6)**: calmer play.\n- **2.Nc3**: White avoids the main lines.\n\nCommon mistakes at club level:\n- Moving the knight too many times and falling behind in development.\n- Letting White keep the e5 pawn and play for a kingside attack with no counterplay.",
+  "lines": [
+    {
+      "name": "Modern Variation: 4.Nf3",
+      "pgn": "1. e4 Nf6 {Alekhine's Defense: attack e4 immediately.} 2. e5 Nd5 {The knight is safe in the center.} 3. d4 d6 {Challenge e5.} 4. Nf3 Bg4 {Pin the knight that defends e5 and d4.} 5. Be2 e6 {Solid: support d5 and open the bishop.} 6. O-O Be7 {Develop and prepare to castle.} 7. c4 Nb6 {The knight retreats; from b6 it eyes c4 and d5.} 8. h3 Bh5 {Keep the pin.} 9. Nc3 O-O {Castle.} 10. Be3 d5 {Lock the center and fight for the c4 square.}",
+      "explain": "After ...d5 your pieces aim at c4 and the white queenside. Plans: ...Nc6, ...dxc4, ...Nd5. White's e5 pawn gives space but can be undermined with ...f6."
+    },
+    {
+      "name": "Four Pawns Attack",
+      "pgn": "1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. c4 Nb6 {The knight retreats; from b6 it eyes c4.} 5. f4 {The Four Pawns Attack: a huge center, but easy to over-extend.} 5... dxe5 {Trade one center pawn.} 6. fxe5 Nc6 {Hit e5 and d4.} 7. Be3 Bf5 {Develop actively.} 8. Nc3 e6 {Open the f8 bishop and guard d5.} 9. Nf3 Be7 {Solid. Plan ...O-O, ...f6 and ...Nb4 to attack the center.}",
+      "explain": "White's pawns look scary, but they need constant protection. Attack them with ...f6, ...Bg4 and ...Qd7 and they will fall."
+    },
+    {
+      "name": "Exchange Variation",
+      "pgn": "1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. c4 Nb6 5. exd6 {The Exchange: White trades the e-pawn.} 5... cxd6 {Take toward the center; ...exd6 is also fine.} 6. Nc3 g6 {Fianchetto the dark bishop.} 7. Be3 Bg7 {The bishop presses on d4.} 8. Rc1 O-O {Your g7 bishop and pieces pressure d4.}",
+      "explain": "Pressure d4 with ...Nc6, ...Bg4 and the g7 bishop. Your pawn structure is sound and the game is balanced."
+    },
+    {
+      "name": "Against 2.Nc3",
+      "pgn": "1. e4 Nf6 2. Nc3 {White protects e4 and avoids the main lines.} d5 {Strike the center.} 3. e5 Nfd7 {The knight steps back.} 4. d4 e6 {You reach a French-like position with good development.}",
+      "explain": "This is like a French Classical. Play ...c5, ...Nc6 and ...Qb6 to attack d4."
+    }
+  ]
+}

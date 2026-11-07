@@ -1,0 +1,35 @@
+{
+  "id": "pirc-defense",
+  "order": 115,
+  "title": "Pirc Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.e4 d6 2.d4 Nf6 3.Nc3 g6: let White build a center, then hit it with ...e5 or ...c5.",
+  "weakness": [
+    "opening:Pirc Defense",
+    "opening:Modern Defense"
+  ],
+  "body": "The Pirc is a hypermodern defense. You let White build a big center with e4 and d4, fianchetto your bishop on **g7**, and then attack the center with **...e5** or **...c5**.\n\nYour plan:\n- Setup: **...d6, ...Nf6, ...g6, ...Bg7, ...O-O**.\n- Break with **...e5** or **...c5** at the right moment.\n- Your g7 bishop is your best piece. Keep it, and avoid trading it for White's dark bishop if you can.\n\nVariations you'll meet:\n- **Classical (4.Nf3, 5.Be2)**: calm, positional.\n- **Austrian Attack (4.f4)**: White grabs the whole center. Play precisely.\n- **150 Attack (4.Be3, Qd2)**: White wants Bh6 and h4-h5.\n\nCommon mistakes at club level:\n- Being too passive: if you never play ...e5 or ...c5, White's center rolls over you.\n- Castling into an h-file attack without counterplay ready.",
+  "lines": [
+    {
+      "name": "Classical: 4.Nf3 and 5.Be2",
+      "pgn": "1. e4 d6 {The Pirc: a flexible first move.} 2. d4 Nf6 {Attack e4.} 3. Nc3 g6 {Prepare the fianchetto.} 4. Nf3 Bg7 {The fianchetto bishop eyes the center.} 5. Be2 O-O {Castle.} 6. O-O Bg4 {Pressure d4 by pinning its defender.} 7. Be3 Nc6 {More pressure on d4.} 8. d5 Bxf3 {Give the bishop to remove a defender.} 9. Bxf3 Ne5 {The knight lands on a fine central square.}",
+      "explain": "Your knight on e5 is strong. Next: ...c6 to open the c-file, or ...Nc4 to hit e3 and b2."
+    },
+    {
+      "name": "Austrian Attack: 4.f4",
+      "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. f4 {The Austrian Attack: a huge pawn center.} 4... Bg7 {Fianchetto: the bishop pressures d4 and e5.} 5. Nf3 O-O {Castle before any counterattack.} 6. Bd3 Na6 {The modern idea: the knight supports ...c5 from a6, and can go to b4.}",
+      "explain": "Against the Austrian, counterattack the center quickly with ...c5. If White plays e5, ...Nd7 and ...c5 break the chain."
+    },
+    {
+      "name": "150 Attack: 4.Be3",
+      "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 {White plans Qd2 and Bh6 to trade your g7 bishop.} c6 {Flexible: prepare ...b5 for queenside play.} 5. Qd2 b5 {Gain space and threaten ...b4.} 6. Bd3 Nbd7 {Develop. Your queenside play comes before White's kingside attack.}",
+      "explain": "Delaying ...Bg7 means Bh6 can't trade bishops yet. Use ...b5, ...Bb7 and ...e5 or ...c5 before deciding where your king goes."
+    },
+    {
+      "name": "Against 4.Bg5",
+      "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Bg5 {White pins the knight and eyes Qd2 and Bh6.} 4... Bg7 {Develop the bishop to its best diagonal.} 5. Qd2 h6 {Ask the bishop.} 6. Bh4 c6 {Calm queenside development: ...b5, ...Nbd7 and ...Qa5.}",
+      "explain": "With ...h6 and ...c6 you prevent the Bh6 trade and get queenside play. ...g5 can break the pin when needed."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "dutch-defense",
+  "order": 122,
+  "title": "Dutch Defense",
+  "category": "Openings for Black",
+  "side": "black",
+  "summary": "1.d4 f5: grab e4 with a flank pawn and play for a kingside attack.",
+  "weakness": [
+    "opening:Dutch Defense"
+  ],
+  "body": "1...f5 controls e4 with the f-pawn, a mirror of the Sicilian against 1.e4. It's an ambitious, unbalanced defense. The price is a slightly weakened king on the **e8-h5 diagonal**.\n\nYour plan:\n- **Leningrad (...g6, ...Bg7)**: a KID-style setup with ...f5 already played. Break with ...e5.\n- **Stonewall (...e6, ...d5, ...c6)**: control e4 with pawns and put a knight on e4.\n- Attack on the kingside: **...Qe8-h5**, **...f4**, **...g5**.\n\nVariations you'll meet:\n- **2.g3 or 2.c4**: White's main lines.\n- **Staunton Gambit (2.e4)**: take and defend accurately.\n- **2.Bg5**: White hits e7. Answer with ...g6 or ...h6.\n\nCommon mistakes at club level:\n- Forgetting **Qh5+** and **Bg6** ideas against the weakened e8-h5 diagonal.\n- In the Stonewall, allowing a white knight to sit on e5 forever.",
+  "lines": [
+    {
+      "name": "Leningrad Dutch",
+      "pgn": "1. d4 f5 {The Dutch: fight for e4 with the f-pawn.} 2. g3 Nf6 {Develop and control e4.} 3. Bg2 g6 {The Leningrad: fianchetto the dark bishop.} 4. Nf3 Bg7 {Fianchetto.} 5. O-O O-O {Castle.} 6. c4 d6 {Prepare ...e5.} 7. Nc3 Qe8 {The Leningrad queen move: it supports ...e5 and can go to h5 or f7.}",
+      "explain": "Next comes ...e5 or ...Qh5 with a kingside attack. Your g7 bishop is strong on the long diagonal."
+    },
+    {
+      "name": "Stonewall",
+      "pgn": "1. d4 f5 2. c4 Nf6 {Develop and control e4.} 3. g3 e6 {Prepare ...d5.} 4. Bg2 d5 {The Stonewall: pawns on c6, d5, e6 and f5 grab e4.} 5. Nf3 c6 {Complete the Stonewall: d5 is fully supported.} 6. O-O Bd6 {The bishop aims at the kingside.} 7. b3 Qe7 {Stop Ba3, which would trade your good bishop. Next: ...O-O, ...b6 and ...Bb7, or ...Ne4.}",
+      "explain": "Your knight on e4 will be very strong. The weakness is e5: don't let a white knight settle there forever, or trade it off."
+    },
+    {
+      "name": "Staunton Gambit: 2.e4",
+      "pgn": "1. d4 f5 2. e4 {The Staunton Gambit: a pawn for quick development.} 2... fxe4 {Take the pawn.} 3. Nc3 Nf6 {Develop and defend e4.} 4. Bg5 {Pressure the defender of e4.} 4... Nc6 {Counterattack d4.} 5. d5 Ne5 {Central knight.} 6. Qd4 Nf7 {The knight defends the h6 and g5 squares and your kingside. You keep the extra pawn.}",
+      "explain": "You keep the e4 pawn and White's pieces are active. Develop with ...c6, ...e6 or ...e5, and get your king safe."
+    },
+    {
+      "name": "Against 2.Bg5",
+      "pgn": "1. d4 f5 2. Bg5 {White hits e7 and makes ...Nf6 awkward.} h6 {Ask the bishop. ...g6 is also good.} 3. Bh4 g5 {Chase the bishop. Never follow up with ...f4? while Qh5 or Bg6 tricks are around.} 4. Bg3 Nf6 {Develop. Your kingside pawns give you space.} 5. e3 d6 {Solid: control e5 and open the c8 bishop.}",
+      "explain": "Your kingside pawns are extended, so be careful: the e8-h5 diagonal is weak. Play ...Bg7, ...Nc6 and ...e5 to get active."
+    }
+  ]
+}
