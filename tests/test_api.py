@@ -99,3 +99,15 @@ def test_exit_calls_launcher_hook(client):
     assert client.post("/api/exit").json() == {"ok": True}
     time.sleep(0.6)
     assert called == [True]
+
+def test_page_is_revalidated_but_hashed_assets_stay_cached(client):
+    """The desktop window caches persistently; after an update it must fetch the new page, not a stale one."""
+    from chezz.api import WEB_DIST
+
+    assert client.get("/api/meta").headers["cache-control"] == "no-cache"
+    if not WEB_DIST.exists():
+        return  # interface not built: nothing else to serve
+    page = client.get("/")
+    assert page.status_code == 200 and page.headers["cache-control"] == "no-cache"
+    asset = next((WEB_DIST / "assets").glob("*.js")).name
+    assert "cache-control" not in client.get(f"/assets/{asset}").headers

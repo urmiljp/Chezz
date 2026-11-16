@@ -272,6 +272,13 @@ richer coaching, go to the **Explanations** card and export **Key moments** or t
 to get a ready-made prompt. Paste it into any AI chat assistant, copy its whole reply, and use
 **Import reply** to bring the explanations back into the review. No API key is needed, and you choose what to share.
 
+To do many games at once, use **Library → Explain with AI**. It exports every analysed game that
+has no coach summary yet (matching the current filters, or just the newest few), split into files of
+a few games each so every file fits in one chat message. Paste each file into an AI chat, then use
+**Import replies** to bring all the replies back in one go: paste them together or choose the saved
+reply files. A game counts as explained once its summary is imported, so the next export only
+includes games you haven't done yet.
+
 ### Insights
 Your weakness profile across all analysed games, or a filtered subset. It shows errors by game phase,
 tactic type, opening and time pressure, each with a direct link to practise it. This profile drives

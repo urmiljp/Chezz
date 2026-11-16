@@ -562,6 +562,14 @@ table.games.compact td { padding: 7px 12px; }
 .export-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .export-btn { flex-direction: column; align-items: flex-start; gap: 2px; height: auto; padding: 10px 12px; text-align: left; white-space: normal; }
 .export-btn small { color: var(--muted); font-weight: 500; font-size: 12px; }
+/* Library: explain many games with AI */
+.field { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.field-label { font-size: 12.5px; font-weight: 650; color: var(--muted); }
+.num-input { width: 110px; }
+.part-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.part-list li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; }
+.part-info { flex: 1; min-width: 0; }
+.part-path { overflow-wrap: anywhere; margin-top: 2px; }
 .coach-card > .btn.primary { align-self: flex-start; }
 .coach-summary { padding: 12px 14px; border-radius: 10px; background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
 .coach-summary p { margin: 4px 0 0; line-height: 1.6; white-space: pre-line; }

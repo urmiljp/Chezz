@@ -366,17 +366,18 @@ def _clock(sec: float | None) -> str:
     return f"{int(sec // 60)}:{int(sec % 60):02d}"
 
 
-def llm_batch(con: sqlite3.Connection, game: sqlite3.Row, scope: str = "key") -> tuple[str, int]:
-    """Markdown for any chat assistant: scope 'game' = every move, 'key' = inaccuracies, mistakes and blunders."""
-    data = load_review(con, game["id"])
-    moves = data["moves"]
-    picked = moves if scope == "game" else [m for m in moves if m["classification"] in ERROR_CLASSES]
+def _player(game: sqlite3.Row) -> str:
     side = game["user_color"]
-    player = f" They played {side} ({game[side]}) in this game." if side else ""
+    return f" They played {side} ({game[side]}) in this game." if side else ""
+
+
+def _game_section(con: sqlite3.Connection, game: sqlite3.Row, scope: str) -> tuple[list[str], int]:
+    """Game info, moves and one '### KEY' block per picked move: (lines, number of KEY blocks)."""
+    moves = load_review(con, game["id"])["moves"]
+    picked = moves if scope == "game" else [m for m in moves if m["classification"] in ERROR_CLASSES]
     label = lambda m: f"{(m['ply'] + 1) // 2}{'.' if m['color'] == 'white' else '...'}"
     movetext = " ".join(f"{label(m)} {m['san']}" if m["color"] == "white" or i == 0 else m["san"] for i, m in enumerate(moves))
     out = [
-        LLM_HEADER.format(player=player, task=LLM_TASK[scope], game_id=game["id"]),
         f"Game: {game['white']} (White) vs {game['black']} (Black), {game['date'] or 'date unknown'}, result {game['result']}",
         f"Opening: {game['opening'] or 'unknown'}",
         f"Moves: {movetext}\n",
@@ -401,7 +402,85 @@ def llm_batch(con: sqlite3.Connection, game: sqlite3.Row, scope: str = "key") ->
             rows.append(f"- Time: spent {_clock(m['time_spent'])}, {_clock(m['clock'])} left"
                         + (" (time trouble)" if m["time_trouble"] else ""))
         out.append(f"---\n\n### KEY {m['fen_before']}|{m['uci']}\n\n" + "\n".join(rows) + "\n")
-    return "\n".join(out), len(picked)
+    return out, len(picked)
+
+
+def llm_batch(con: sqlite3.Connection, game: sqlite3.Row, scope: str = "key") -> tuple[str, int]:
+    """Markdown for any chat assistant: scope 'game' = every move, 'key' = inaccuracies, mistakes and blunders."""
+    lines, count = _game_section(con, game, scope)
+    header = LLM_HEADER.format(player=_player(game), task=LLM_TASK[scope], game_id=game["id"])
+    return "\n".join([header, *lines]), count
+
+
+# ---------- several games in one prompt ----------
+
+LLM_TASK_MULTI = {
+    "game": "For every move of every game below, explain in 1-2 short sentences what it does: the idea behind good "
+            "moves, and for inaccuracies, mistakes and blunders why they were wrong and what the engine's move achieves.",
+    "key": "For each key moment of every game below, explain in 2-3 short sentences why the move played was an "
+           "error and what the engine's better move achieves.",
+}
+LLM_HEADER_MULTI = """# Chezz: explanation batch ({games})
+
+You are a friendly chess coach for a club player rated about 1200. The {games} below {verb} theirs.
+{task} Use plain language and name concrete ideas (hanging piece, fork, pin, skewer, back-rank,
+discovered attack, missed mate) when they apply. Only rely on the engine data given: it is exact,
+so do not work out moves or positions yourself.
+
+Reply in exactly this format, covering every game in order. For each game, first a summary of that
+game in 3-5 sentences (how it was decided and the one habit worth working on), then one block per
+position of that game, copying each SUMMARY and KEY line unchanged:
+
+### SUMMARY <game id>
+<your summary>
+
+### KEY <fen>|<move>
+<your explanation>
+
+Do not skip any game, and write nothing else between the blocks.
+
+"""
+NO_KEY_MOMENTS = "No inaccuracies, mistakes or blunders in this game: only write its summary.\n"
+
+
+def llm_batch_multi(con: sqlite3.Connection, games: list[sqlite3.Row], scope: str = "key") -> tuple[str, int]:
+    """One prompt covering several games; the reply imports with import_explanations like a single-game one.
+    In 'key' scope a game without errors is still included so it gets a summary. Returns (text, KEY blocks)."""
+    n = len(games)
+    out = [LLM_HEADER_MULTI.format(games=f"{n} game{'' if n == 1 else 's'}", verb="is" if n == 1 else "are",
+                                   task=LLM_TASK_MULTI[scope])]
+    total = 0
+    for game in games:
+        lines, count = _game_section(con, game, scope)
+        out.append(f"=== Game {game['id']}: start your reply for it with ### SUMMARY {game['id']} ===\n")
+        if _player(game):
+            out.append(_player(game).strip())
+        out.extend(lines)
+        if not count:
+            out.append(NO_KEY_MOMENTS)
+        total += count
+    return "\n".join(out), total
+
+
+# Analysed games (latest run done) that have no coach summary yet; SQL over games alias g.
+UNEXPLAINED = ("g.id IN (SELECT game_id FROM latest_runs) "
+               "AND NOT EXISTS (SELECT 1 FROM kv WHERE kv.key = 'coach_summary:' || g.id)")
+
+
+def unexplained_games(con: sqlite3.Connection, where: str = "", params: list | None = None,
+                      limit: int | None = None) -> list[sqlite3.Row]:
+    """Unexplained games matching a filters clause (as from filters.game_filters), newest first."""
+    sql = f"SELECT g.* FROM games g{where} {'AND' if where else 'WHERE'} {UNEXPLAINED} ORDER BY g.date DESC, g.id DESC"
+    args = list(params or [])
+    if limit:
+        sql += " LIMIT ?"
+        args.append(limit)
+    return con.execute(sql, args).fetchall()
+
+
+def count_unexplained(con: sqlite3.Connection, where: str = "", params: list | None = None) -> int:
+    return con.execute(f"SELECT count(*) FROM games g{where} {'AND' if where else 'WHERE'} {UNEXPLAINED}",
+                       params or []).fetchone()[0]
 
 
 HEAD_RE = re.compile(

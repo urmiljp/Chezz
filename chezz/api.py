@@ -26,7 +26,8 @@ LIST_COLUMNS = ", ".join("g." + c for c in (
 )) + """,
     (SELECT CASE g.user_color WHEN 'white' THEN r.white_accuracy WHEN 'black' THEN r.black_accuracy END
        FROM analysis_runs r WHERE r.game_id = g.id AND r.status = 'done' ORDER BY r.id DESC LIMIT 1) AS accuracy,
-    (SELECT r.status FROM analysis_runs r WHERE r.game_id = g.id ORDER BY r.id DESC LIMIT 1) AS analysis_status"""
+    (SELECT r.status FROM analysis_runs r WHERE r.game_id = g.id ORDER BY r.id DESC LIMIT 1) AS analysis_status,
+    EXISTS (SELECT 1 FROM kv WHERE kv.key = 'coach_summary:' || g.id) AS explained"""
 
 # Games whose latest run is not 'done' and that have nothing queued/running.
 UNANALYZED = """NOT EXISTS (SELECT 1 FROM analysis_runs r WHERE r.game_id = g.id
@@ -51,6 +52,12 @@ class FolderBody(BaseModel):
     which: str
 
 
+class ExplainBatchBody(BaseModel):
+    scope: str = "key"
+    per_file: int = 10  # games per prompt file, so each one fits in an AI chat message
+    limit: int | None = None  # newest N unexplained games; None = all of them
+
+
 def _tags(value: str | None) -> list[str]:
     return sorted(value.split("\x1f")) if value else []
 
@@ -58,6 +65,8 @@ def _tags(value: str | None) -> list[str]:
 def _game_dict(row: sqlite3.Row) -> dict:
     d = dict(row)
     d["starred"] = bool(d["starred"])
+    if "explained" in d:
+        d["explained"] = bool(d["explained"])
     d["tags"] = _tags(d.pop("tag_list", None))
     return d
 
@@ -103,7 +112,12 @@ def create_app(cfg: Config, start_worker: bool = True) -> FastAPI:
                 or (origin is not None and origin != f"http://{host}")
                 or request.headers.get("sec-fetch-site") == "cross-site"):
             return JSONResponse({"detail": "Forbidden: Chezz only accepts requests from its own window."}, 403)
-        return await call_next(request)
+        response = await call_next(request)
+        # The window keeps a persistent cache: make it revalidate the page (and API data) every time, so a
+        # rebuilt interface shows up after an update. Hashed /assets/* files are safe to keep cached.
+        if not request.url.path.startswith("/assets/"):
+            response.headers.setdefault("Cache-Control", "no-cache")
+        return response
 
     def get_con():
         con = db.connect(cfg.db_path)
@@ -270,6 +284,35 @@ def create_app(cfg: Config, start_worker: bool = True) -> FastAPI:
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(text, encoding="utf-8")
         return {"path": str(dest), "count": count, "text": text}
+
+    @app.get("/api/explanations/unexplained")
+    def unexplained_count(filters=Depends(game_filters), con=Depends(get_con)):
+        """Analysed games matching the library filters that have no coach summary yet."""
+        return {"count": analysis.count_unexplained(con, *filters)}
+
+    @app.post("/api/explanations/batch")
+    def explanation_batch(body: ExplainBatchBody, filters=Depends(game_filters), con=Depends(get_con)):
+        """Export every unexplained game matching the library filters, split into files of per_file games."""
+        if body.scope not in ("game", "key"):
+            raise HTTPException(400, "scope must be 'game' or 'key'")
+        if not 1 <= body.per_file <= 50:
+            raise HTTPException(400, "Games per file must be between 1 and 50.")
+        if body.limit is not None and body.limit < 1:
+            raise HTTPException(400, "Number of games must be at least 1.")
+        games = analysis.unexplained_games(con, *filters, limit=body.limit)
+        if not games:
+            raise HTTPException(400, "No unexplained games: every analysed game matching these filters already has a coach summary.")
+        chunks = [games[i : i + body.per_file] for i in range(0, len(games), body.per_file)]
+        stamp, folder = _stamp(), cfg.data_dir / "exports"
+        folder.mkdir(parents=True, exist_ok=True)
+        parts = []
+        for n, chunk in enumerate(chunks, 1):
+            text, count = analysis.llm_batch_multi(con, chunk, body.scope)
+            suffix = f"-part-{n}-of-{len(chunks)}" if len(chunks) > 1 else ""
+            dest = folder / f"explain-{len(games)}-games-{'whole-game' if body.scope == 'game' else 'key-moments'}-{stamp}{suffix}.md"
+            dest.write_text(text, encoding="utf-8")
+            parts.append({"path": str(dest), "games": [g["id"] for g in chunk], "count": count, "text": text})
+        return {"games": len(games), "parts": parts}
 
     @app.post("/api/explanations/import")
     def import_explanations(body: TextBody, con=Depends(get_con)):

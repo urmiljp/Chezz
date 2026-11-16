@@ -259,7 +259,7 @@ export async function renderGame(root: HTMLElement, id: number, startPly?: numbe
         fromCoach ? h('span', { class: 'src-tag' }, `${fromCoach} of ${review.moves.length} from your coach`) : null),
       review.coach_summary ? h('div', { class: 'coach-summary' }, h('strong', {}, 'Coach summary'), h('p', {}, review.coach_summary)) : null,
       h('p', { class: 'muted small' },
-        'Explanations are written from the engine data. For a coach-style review, export this game, paste it into any AI chat, then import its reply here.'),
+        'Explanations are written from the engine data. For a coach-style review, export this game, paste it into any AI chat, then import its reply here. To do many games at once, use Explain with AI in the Library.'),
       h('div', { class: 'export-row' },
         exportBtn('game', 'Whole game', `Every move, ${review.moves.length} in all`, review.moves.length),
         exportBtn('key', 'Key moments', keyCount === 1 ? 'The 1 inaccuracy, mistake or blunder' : keyCount ? `The ${keyCount} inaccuracies, mistakes and blunders` : 'No errors in this game', keyCount)),
@@ -443,7 +443,7 @@ export async function renderGame(root: HTMLElement, id: number, startPly?: numbe
       try {
         const res = await api.importExplanations(text.value);
         m.close();
-        const parts = [res.imported ? `${res.imported} explanation${res.imported === 1 ? '' : 's'}` : '', res.summaries ? 'the game summary' : ''];
+        const parts = [res.imported ? `${res.imported} explanation${res.imported === 1 ? '' : 's'}` : '', res.summaries === 1 ? 'the game summary' : res.summaries ? `${res.summaries} game summaries` : ''];
         toast(`Imported ${parts.filter(Boolean).join(' and ')}`);
         review = await api.review(g.id);
         applyReview();

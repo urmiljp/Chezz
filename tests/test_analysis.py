@@ -91,6 +91,37 @@ def test_analyse_game_end_to_end(engine_client):
     assert c.post(f"/api/games/{gid}/llm-batch", params={"scope": "nope"}).status_code == 400
 
 
+def test_bulk_explanations_with_real_analysis(engine_client):
+    """Analyse two games, export both in one prompt, import one reply covering both."""
+    c = engine_client
+    # Same moves, so both games share their KEY positions; a Site URL keeps them from being deduplicated.
+    second = MATE_PGN.replace('[Event "t"]', '[Event "t"]\n[Site "https://example.org/game/2"]')
+    gids = c.post("/api/import", json={"pgn": MATE_PGN + "\n\n" + second}).json()["ids"]
+    assert len(gids) == 2
+    assert c.get("/api/explanations/unexplained").json()["count"] == 0  # not analysed yet
+    assert c.post("/api/analysis/queue-all").json()["queued"] == 2
+    for gid in gids:
+        wait_done(c, gid)
+    assert c.get("/api/explanations/unexplained").json()["count"] == 2
+
+    part = c.post("/api/explanations/batch", json={"scope": "key"}).json()["parts"][0]
+    assert sorted(part["games"]) == sorted(gids) and part["count"] >= 2
+    reply = []
+    for line in part["text"].splitlines():
+        if line.startswith("=== Game "):
+            gid = int(line.split()[2].rstrip(":"))
+            reply.append(f"### SUMMARY {gid}\nGame {gid}: Black ignored the threat on f7.\n")
+        elif line.startswith("### KEY ") and "<fen>" not in line:
+            reply.append(f"{line}\nThis move leaves f7 undefended.\n")
+    res = c.post("/api/explanations/import", json={"text": "\n".join(reply)}).json()
+    assert res == {"imported": part["count"], "summaries": 2}
+    for gid in gids:
+        r = c.get(f"/api/games/{gid}/review").json()
+        assert r["coach_summary"] == f"Game {gid}: Black ignored the threat on f7."
+        assert any(m["explanation_source"] == "llm" and m["san"] == "Nf6" for m in r["moves"])
+    assert c.get("/api/explanations/unexplained").json()["count"] == 0
+
+
 def test_queue_all_and_engine_reuse(engine_client):
     c = engine_client
     c.post("/api/import-sample")

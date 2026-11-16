@@ -23,6 +23,8 @@ export interface GameSummary {
   tags: string[];
   accuracy?: number | null;
   analysis_status?: RunStatus | null;
+  /** Has a coach summary imported from an AI reply. */
+  explained?: boolean;
 }
 
 export type RunStatus = 'queued' | 'running' | 'done' | 'error';
@@ -336,12 +338,25 @@ async function req<T>(method: string, path: string, body?: unknown): Promise<T> 
   return res.json();
 }
 
-function query(f: Filters, offset: number, limit: number): string {
+function filterParams(f: Filters): URLSearchParams {
   const p = new URLSearchParams();
   for (const [k, v] of Object.entries(f)) if (v) p.set(k, String(v));
+  return p;
+}
+
+function query(f: Filters, offset: number, limit: number): string {
+  const p = filterParams(f);
   p.set('offset', String(offset));
   p.set('limit', String(limit));
   return p.toString();
+}
+
+export interface ExplainBatchPart {
+  path: string;
+  games: number[];
+  /** Number of moves (KEY blocks) in this part. */
+  count: number;
+  text: string;
 }
 
 export const api = {
@@ -364,6 +379,11 @@ export const api = {
   /** scope 'game': every move; 'key': inaccuracies, mistakes and blunders. */
   llmBatch: (id: number, scope: 'game' | 'key') =>
     req<{ path: string; count: number; text: string }>('POST', `/api/games/${id}/llm-batch?scope=${scope}`),
+  /** Analysed games matching the filters that have no coach summary yet. */
+  unexplainedCount: (f: Filters) => req<{ count: number }>('GET', `/api/explanations/unexplained?${filterParams(f)}`),
+  /** Export every unexplained game matching the filters (newest `limit` if set), `per_file` games per prompt. */
+  explainBatch: (f: Filters, body: { scope: 'game' | 'key'; per_file: number; limit: number | null }) =>
+    req<{ games: number; parts: ExplainBatchPart[] }>('POST', `/api/explanations/batch?${filterParams(f)}`, body),
   importExplanations: (text: string) => req<{ imported: number; summaries: number }>('POST', '/api/explanations/import', { text }),
   exit: () => req<{ ok: boolean }>('POST', '/api/exit'),
   markReviewed: (id: number) => req<{ ok: boolean }>('POST', `/api/games/${id}/reviewed`),

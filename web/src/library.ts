@@ -1,4 +1,4 @@
-import { api, type Filters, type GameSummary, type ImportResult, type Meta } from './api';
+import { api, type ExplainBatchPart, type Filters, type GameSummary, type ImportResult, type Meta } from './api';
 import type { View } from './main';
 import { debounce, emptyState, fill, h, icon, modal, resultBadge, toast } from './ui';
 
@@ -12,6 +12,8 @@ export async function renderLibrary(root: HTMLElement, params = new URLSearchPar
 
   const count = h('span', { class: 'muted' });
   const analysisBox = h('div', { class: 'row gap' });
+  let unexplained = 0;
+  const explainBtn = h('button', { class: 'btn ghost', hidden: true, title: 'Export games without a coach summary for an AI chat, or import its replies', onClick: () => openExplain() });
   let pollTimer: number | undefined;
   let destroyed = false;
   let lastRemaining = -1;
@@ -28,6 +30,7 @@ export async function renderLibrary(root: HTMLElement, params = new URLSearchPar
       count,
       h('div', { class: 'spacer' }),
       analysisBox,
+      explainBtn,
       h('button', { class: 'btn ghost', title: 'Write all games to one PGN file', onClick: exportAll }, icon('download'), 'Export PGN'),
       h('button', { class: 'btn ghost', title: 'Copy the database to data/backups', onClick: backup }, icon('database'), 'Back up'),
       h('button', { class: 'btn primary', onClick: () => openImport(refreshAll) }, icon('upload'), 'Import PGN'),
@@ -185,6 +188,158 @@ export async function renderLibrary(root: HTMLElement, params = new URLSearchPar
     games = append ? games.concat(res.games) : res.games;
     total = res.total;
     paintTable();
+    if (!append) void refreshUnexplained();
+  }
+
+  /** "Explain with AI (N)": N = analysed games matching the filters without a coach summary. */
+  async function refreshUnexplained() {
+    const res = await api.unexplainedCount(filters).catch(() => null);
+    if (destroyed || !res) return;
+    unexplained = res.count;
+    fill(explainBtn, icon('coach'), unexplained ? `Explain with AI (${unexplained})` : 'Explain with AI');
+    explainBtn.hidden = meta.total === 0;
+  }
+
+  // ---------- AI explanations for many games at once ----------
+
+  function openExplain() {
+    const n = unexplained;
+    let scope: 'key' | 'game' = 'key';
+    const scopeSeg = h('div', { class: 'seg' });
+    const paintScope = () =>
+      fill(scopeSeg, ([['key', 'Key moments'], ['game', 'Whole game']] as const).map(([v, l]) =>
+        h('button', { class: `seg-btn${v === scope ? ' on' : ''}`, onClick: () => { scope = v; paintScope(); } }, l)));
+    paintScope();
+    const howMany = h('input', { type: 'number', min: 1, max: Math.max(1, n), value: String(n), class: 'num-input' });
+    const perFile = h('input', { type: 'number', min: 1, max: 50, value: '10', class: 'num-input' });
+    const plan = h('p', { class: 'small muted' });
+    const status = h('div');
+    const num = (el: HTMLInputElement, lo: number, hi: number) => {
+      const v = Number(el.value);
+      return Number.isInteger(v) && v >= lo && v <= hi ? v : null;
+    };
+    const paintPlan = () => {
+      const g = num(howMany, 1, n);
+      const per = num(perFile, 1, 50);
+      if (g == null || per == null) {
+        plan.textContent = `Enter a whole number of games from 1 to ${n}, and from 1 to 50 games per file.`;
+        return;
+      }
+      const files = Math.ceil(g / per);
+      plan.textContent = `${plural(g, 'game')}, newest first, in ${plural(files, 'file')}. Paste one file per AI chat message.`;
+    };
+    howMany.addEventListener('input', paintPlan);
+    perFile.addEventListener('input', paintPlan);
+    paintPlan();
+
+    const exportBtn = h('button', { class: 'btn primary', disabled: !n }, icon('download'), 'Export');
+    exportBtn.addEventListener('click', async () => {
+      const g = num(howMany, 1, n);
+      const per = num(perFile, 1, 50);
+      if (g == null || per == null) return paintPlan();
+      exportBtn.disabled = true;
+      fill(status, h('p', { class: 'small muted' }, 'Preparing…'));
+      try {
+        const res = await api.explainBatch(filters, { scope, per_file: per, limit: g < n ? g : null });
+        m.close();
+        showParts(res.games, res.parts, scope);
+      } catch (err) {
+        fill(status, h('p', { class: 'error-text' }, (err as Error).message));
+        exportBtn.disabled = false;
+      }
+    });
+    const field = (label: string, input: HTMLElement, hint?: string) =>
+      h('label', { class: 'field' }, h('span', { class: 'field-label' }, label), input, hint ? h('span', { class: 'small muted' }, hint) : null);
+    const filtered = Object.values(filters).some(Boolean);
+    const m = modal(
+      'Explain games with AI',
+      h('div', { class: 'stack' },
+        h('p', { class: 'small' }, n
+          ? `${plural(n, 'analysed game has', 'analysed games have')} no coach summary yet${filtered ? ' (matching your filters)' : ''}. `
+            + 'Export them as ready-made prompts, paste each file into any AI chat, then import the replies here. '
+            + 'A game counts as explained once its summary is imported.'
+          : `Every analysed game${filtered ? ' matching your filters' : ''} already has a coach summary. Analyze more games, or import replies you already have.`),
+        n ? h('div', { class: 'stack' },
+          field('Explain', scopeSeg, 'Key moments: only inaccuracies, mistakes and blunders, plus a summary per game. Whole game: every move (much longer).'),
+          h('div', { class: 'row gap' }, field('Games', howMany), field('Games per file', perFile)),
+          plan) : null,
+        status),
+      [
+        h('button', { class: 'btn ghost', onClick: () => m.close() }, 'Cancel'),
+        h('button', { class: 'btn ghost', onClick: () => { m.close(); openExplainImport(); } }, icon('upload'), 'Import replies'),
+        exportBtn,
+      ],
+    );
+  }
+
+  function showParts(gameCount: number, parts: ExplainBatchPart[], scope: 'key' | 'game') {
+    const copyBtn = (text: string) => {
+      const b = h('button', { class: 'btn ghost sm' }, 'Copy');
+      b.addEventListener('click', async () => {
+        const ok = await navigator.clipboard.writeText(text).then(() => true, () => false);
+        b.textContent = ok ? 'Copied' : 'Copy failed: open the file';
+      });
+      return b;
+    };
+    const m = modal(
+      `${plural(gameCount, 'game')} ready for an AI chat`,
+      h('div', { class: 'stack' },
+        h('p', { class: 'small' }, parts.length > 1
+          ? `Split into ${parts.length} files. Paste each one into an AI chat and keep every reply. `
+          : 'Paste it into any AI chat assistant and keep its whole reply. ',
+          'Then use Import replies with all of them at once: paste them together or choose the saved reply files.'),
+        h('ul', { class: 'part-list' }, parts.map((p, i) =>
+          h('li', {},
+            h('div', { class: 'part-info' },
+              h('strong', {}, parts.length > 1 ? `Part ${i + 1} of ${parts.length}` : 'Prompt'),
+              h('span', { class: 'small muted' }, ` ${plural(p.games.length, 'game')}, ${scope === 'key' ? plural(p.count, 'key moment') : plural(p.count, 'move')}`),
+              h('div', { class: 'small muted part-path' }, p.path)),
+            copyBtn(p.text)))),
+      ),
+      [
+        h('button', { class: 'btn ghost', onClick: () => void api.openFolder('exports') }, 'Open folder'),
+        h('button', { class: 'btn primary', onClick: () => { m.close(); openExplainImport(); } }, icon('upload'), 'Import replies'),
+      ],
+    );
+  }
+
+  function openExplainImport() {
+    const drop = fileDrop('Choose reply files', '.md,.txt,text/plain,text/markdown');
+    const paste = h('textarea', { class: 'paste', placeholder: '### SUMMARY 12\n…\n### KEY <fen>|<move>\nExplanation…\n\n(paste one or more replies)' });
+    paste.spellcheck = false;
+    const result = h('div');
+    const go = h('button', { class: 'btn primary' }, 'Import');
+    const closeBtn = h('button', { class: 'btn ghost', onClick: () => m.close() }, 'Cancel');
+    go.addEventListener('click', async () => {
+      const texts = await drop.texts();
+      if (paste.value.trim()) texts.push(paste.value);
+      if (!texts.length) {
+        fill(result, h('p', { class: 'error-text' }, 'Choose a reply file or paste a reply first.'));
+        return;
+      }
+      go.disabled = true;
+      try {
+        const res = await api.importExplanations(texts.join('\n\n'));
+        fill(result, h('p', { class: 'success-text' },
+          `Imported ${plural(res.imported, 'explanation')} and ${plural(res.summaries, 'game summary', 'game summaries')}.`));
+        drop.clear();
+        paste.value = '';
+        closeBtn.textContent = 'Done';
+        await load();
+      } catch (err) {
+        fill(result, h('p', { class: 'error-text' }, (err as Error).message));
+      } finally {
+        go.disabled = false;
+      }
+    });
+    const m = modal(
+      'Import AI replies',
+      h('div', { class: 'stack' },
+        h('p', { class: 'small muted' }, "Import the assistant's whole replies, for one game or many. Their explanations replace the built-in ones for those moves."),
+        drop.el, h('div', { class: 'or' }, 'or paste replies'), paste, result),
+      [closeBtn, go],
+    );
+    paste.focus();
   }
 
   function paintTable() {
@@ -329,7 +484,9 @@ export async function renderLibrary(root: HTMLElement, params = new URLSearchPar
 }
 
 function accuracyCell(g: GameSummary): HTMLElement | string {
-  if (g.accuracy != null) return h('span', { class: 'acc-cell' }, g.accuracy.toFixed(1));
+  if (g.accuracy != null)
+    return h('span', { class: 'acc-cell' }, g.accuracy.toFixed(1),
+      g.explained ? h('span', { class: 'src-tag', title: 'Has a coach summary from an AI reply' }, 'coach') : null);
   const label: Record<string, string> = { queued: 'Queued', running: 'Analyzing…', error: 'Failed' };
   return h('span', { class: 'muted small' }, (g.analysis_status && label[g.analysis_status]) || '—');
 }
@@ -346,53 +503,69 @@ function importSummary(r: ImportResult): string {
   return parts.join(' · ');
 }
 
-function openImport(onDone: () => Promise<void>) {
-  let files: File[] = [];
-  const fileInput = h('input', { type: 'file', multiple: true, accept: '.pgn,text/plain', hidden: true });
-  const fileList = h('div', { class: 'muted small' });
-  const paste = h('textarea', { class: 'paste', placeholder: '[Event "Live Chess"]\n…\n1. e4 e5 2. Nf3 …' });
-  paste.spellcheck = false;
-  const result = h('div');
-  const importBtn = h('button', { class: 'btn primary', onClick: run }, 'Import');
-  const closeBtn = h('button', { class: 'btn ghost', onClick: () => m.close() }, 'Cancel');
+function plural(n: number, one: string, many = `${one}s`): string {
+  return `${n} ${n === 1 ? one : many}`;
+}
 
+/** Click-or-drop picker for several text files. */
+function fileDrop(title: string, accept: string) {
+  let files: File[] = [];
+  const fileInput = h('input', { type: 'file', multiple: true, accept, hidden: true });
+  const fileList = h('div', { class: 'muted small' });
   const setFiles = (list: FileList | null) => {
     files = list ? Array.from(list) : [];
     fileList.textContent = files.map((f) => f.name).join(', ');
   };
   fileInput.addEventListener('change', () => setFiles(fileInput.files));
-
-  const drop = h(
+  const el = h(
     'div',
     {
       class: 'dropzone',
       onClick: () => fileInput.click(),
       onDragover: (e: DragEvent) => {
         e.preventDefault();
-        drop.classList.add('over');
+        el.classList.add('over');
       },
-      onDragleave: () => drop.classList.remove('over'),
+      onDragleave: () => el.classList.remove('over'),
       onDrop: (e: DragEvent) => {
         e.preventDefault();
-        drop.classList.remove('over');
+        el.classList.remove('over');
         setFiles(e.dataTransfer?.files ?? null);
       },
     },
     icon('upload'),
-    h('div', {}, h('strong', {}, 'Choose PGN files'), ' or drop them here'),
+    h('div', {}, h('strong', {}, title), ' or drop them here'),
     fileList,
     fileInput,
   );
+  return {
+    el,
+    texts: () => Promise.all(files.map((f) => f.text())),
+    clear: () => {
+      setFiles(null);
+      fileInput.value = '';
+    },
+  };
+}
+
+function openImport(onDone: () => Promise<void>) {
+  const drop = fileDrop('Choose PGN files', '.pgn,text/plain');
+  const paste = h('textarea', { class: 'paste', placeholder: '[Event "Live Chess"]\n…\n1. e4 e5 2. Nf3 …' });
+  paste.spellcheck = false;
+  const result = h('div');
+  const importBtn = h('button', { class: 'btn primary', onClick: run }, 'Import');
+  const closeBtn = h('button', { class: 'btn ghost', onClick: () => m.close() }, 'Cancel');
+
 
   const m = modal(
     'Import games',
-    h('div', { class: 'stack' }, drop, h('div', { class: 'or' }, 'or paste PGN'), paste, result),
+    h('div', { class: 'stack' }, drop.el, h('div', { class: 'or' }, 'or paste PGN'), paste, result),
     [closeBtn, importBtn],
   );
   paste.focus();
 
   async function run() {
-    const texts = await Promise.all(files.map((f) => f.text()));
+    const texts = await drop.texts();
     if (paste.value.trim()) texts.push(paste.value);
     if (!texts.length) {
       fill(result, h('p', { class: 'error-text' }, 'Choose a file or paste some PGN first.'));
@@ -410,8 +583,7 @@ function openImport(onDone: () => Promise<void>) {
       );
       importBtn.textContent = 'Import more';
       closeBtn.textContent = 'Done';
-      files = [];
-      fileList.textContent = '';
+      drop.clear();
       paste.value = '';
       await onDone();
     } catch (err) {

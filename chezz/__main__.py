@@ -84,7 +84,10 @@ def main() -> None:
 
                 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("Chezz.App")
             icon = ROOT / "assets" / ("icon.ico" if sys.platform == "win32" else "icon.png")
-            webview.create_window("Chezz", url, width=1320, height=860, min_size=(960, 640))
+            # The window's cache persists, and a page it cached before an update can look fresh enough to
+            # reuse without asking the server. Tag the URL with the build time so a new build is a new URL.
+            build = int((WEB / "dist" / "index.html").stat().st_mtime)
+            webview.create_window("Chezz", f"{url}?v={build}", width=1320, height=860, min_size=(960, 640))
             # Not private: keep the theme and play settings (localStorage) between launches.
             webview.start(icon=str(icon), private_mode=False, storage_path=str(cfg.data_dir / "webview"))
             server.should_exit = True
